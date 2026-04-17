@@ -37,7 +37,7 @@
     <div class="card">
         <div class="card-body">
             <h1 class="card-title">Sobre Nosotros</h1>
-            <p>Somos una tienda que vende articulos de pádel, entre grips, pelotas y más. Hacemos envios por todo Corrientes. Podes hacer consultas por nuestro Instagram o WhatsApp.</p>
+            <p>Somos una tienda que vende artículos de pádel, entre grips, pelotas y más. Hacemos envíos por todo Corrientes. Podés hacer consultas por nuestro Instagram o WhatsApp.</p>
         </div>
     </div>
 </div>
