@@ -17,3 +17,19 @@ Route::get('/shop', function () {
 Route::get('/user', function () {
     return view('user');
 });
+
+Route::get('/productos', function () {
+    return view('productos');
+});
+
+Route::get('/comercialización', function () {
+    return view('comercialización');
+});
+
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+
+Route::get('/términos', function () {
+    return view('términos');
+});
