@@ -32,7 +32,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar2">
 
 <div class="navbar-brand ms-2">
-<a class="nav-link" href="/">Productos</a> 
+<a class="nav-link" href="/productos">Productos</a> 
 </div>
 
 <div class="navbar-brand">
@@ -40,11 +40,15 @@
 </div>
 
 <div class="navbar-brand">
-<a class="nav-link" href="/">Contactanos</a>
+<a class="nav-link" href="/comercialización">Comercialización</a>
 </div>
 
 <div class="navbar-brand">
-<a class="nav-link" href="/">Terminos y Usos</a>
+<a class="nav-link" href="/contacto">Contactanos</a>
+</div>
+
+<div class="navbar-brand">
+<a class="nav-link" href="/términos">Términos y Usos</a>
 </div>
 </nav>
 
