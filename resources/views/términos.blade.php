@@ -28,7 +28,10 @@
 
 <div style="text-align:center; margin-top:50px;">
     <h1>Términos y Usos</h1>
-    <p>Al usar nuestra página...</p>
+    <p>Bienvenido a La Dejada Padel Store. Al acceder a nuestro sitio web y utilizar nuestros servicios de reserva de pistas, clases y eventos, aceptas cumplir con los siguientes términos:
+        1. Registro y Cuenta de Usuario
+        Para realizar reservas, el usuario debe crear una cuenta proporcionando datos reales y actualizados.
+        El usuario es responsable de mantener la confidencialidad de su contraseña y de todas las actividades realizadas en su cuenta.</p>
 </div>
 </body>
 
