@@ -5,26 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Dejada - Padel Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        /* Ajuste para que el carrusel no sea gigante y las fotos se vean bien */
-        .carousel-item img {
-            height: 450px;
-            object-fit: cover;
-        }
-        /* Estilo para el cuadro de Sobre Nosotros */
-        .info-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: -50px; /* Lo eleva un poco sobre el carrusel estilo moderno */
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .navbar {
-            background-color: #004d26; /* Verde padel */
-        }
-    </style>
 </head>
 <body>
 
@@ -32,7 +12,7 @@
     <div class="container py-3">
         <div class="row align-items-center">
             <div class="col-md-3">
-                <a class="navbar-brand d-flex align-items-center" href="#">
+                <a class="navbar-brand d-flex align-items-center" href="/main">
                     <img src="{{ asset('images/Icono.PNG') }}" alt="Logo La Dejada" width="50" class="me-2">
                 </a>
             </div>
@@ -45,10 +25,10 @@
             </div>
             
             <div class="col-md-3 text-end">
-                <a href="#" class="text-decoration-none text-dark me-3">
+                <a href="/user" class="text-decoration-none text-dark me-3">
                     <i class="bi bi-person"></i> Login
                 </a>
-                <a href="#" class="text-decoration-none text-dark position-relative">
+                <a href="/shop" class="text-decoration-none text-dark position-relative">
                     <i class="bi bi-cart"></i> Carrito
                     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
                 </a>
@@ -56,18 +36,19 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004d26;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto text-uppercase fw-semibold">
-                    <li class="nav-item"><a class="nav-link px-3" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/main">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/productos">Productos</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#">Sobre Nosotros</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#">Comercialización</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#">Términos y Usos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/comercialización">Comercialización</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/contacto">Contáctanos</a>
+                    <li class="nav-item"><a class="nav-link px-3" href="/términos">Términos y Usos</a></li>
                 </ul>
             </div>
         </div>
@@ -87,5 +68,8 @@
         <span class="carousel-control-next-icon"></span>
     </button>
 </div>
+
+
+
 </body>
 </html>

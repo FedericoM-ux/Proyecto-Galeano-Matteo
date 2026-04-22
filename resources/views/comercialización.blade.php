@@ -29,6 +29,11 @@
 <div style="text-align:center; margin-top:50px;">
     <h1>Comercialización:</h1>
 </div>
+
+<p>Métodos de Pago:<br>Efectivo, Transferencia Bancaria, Tarjeta de Crédito/Debito.</p>
+
+<p>Métodos de Envío:<br>Retiro por nuestra sucursal o envíos a todo el país a través de correo argentino.</p>
+<!--Agregar mapa de la sucursal, tarjetas, etc.-->
 </body>
 
 </html>

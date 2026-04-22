@@ -29,6 +29,28 @@
 <div style="text-align:center; margin-top:50px;">
     <h1>Contactanos:</h1>
 </div>
+
+<form>
+  <div class="mb-3">
+    <label for="exampleInputName" class="form-label">Nombre</label>
+    <input type="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
+  <div class="mb-3">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <div class="mb-3">
+  <div class="mb-3">
+    <label for="exampleInputPhone" class="form-label">Teléfono</label>
+    <input type="phone" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp">
+  <div class="mb-3">
+
+    <!-- extender la barra de mensaje -->
+    <label for="exampleInputPassword1" class="form-label">Mensaje:</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
 </body>
 
 </html>
