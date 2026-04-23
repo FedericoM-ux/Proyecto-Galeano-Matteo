@@ -6,34 +6,49 @@
     <link rel="stylesheet" href="{{ asset('css/estilo.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
 </head>
-
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark navbar">
-    <div class="container-fluid px-0">
-
-        <a class="navbar-brand ms-2" href="/main">
-            <img src="{{ asset('images/icono.PNG') }}" alt="Icono" height="40">
-        </a>
-        
-        <div class="navbar-brand mx-auto">
-            <a class="nav-link" href="/">Buscar</a>
-        </div>
-
-        <a class="navbar-brand" href="/user">
-        <img src="{{ asset('images/user.svg') }}" height="30">
-        </a>
-        
-        <a class="navbar-brand" href="/shop">
-        <img src="{{ asset('images/shopping-cart.svg') }}" height="30">
-        </a>
+<nav class="navbar navbar-expand-lg navbar-light navbar">
+    <div class="container-fluid py-3">
+            <div class="col-md-3">
+                <a class="navbar-brand d-flex align-items-center" href="/main">
+                    <img src="{{ asset('images/Icono.PNG') }}" alt="Logo La Dejada" width="130" class="me-2">
+                </a>
+            </div>
+            
+            <div class="col-md-6">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar productos..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+            
+            <a class="navbar-brand ms-auto" href="/user">
+                <img src="{{ asset('images/user.svg') }}" height="30">
+            </a>
+                    <a class="navbar-brand position-relative" href="/shop">
+    <img src="{{ asset('images/shopping-cart.svg') }}" height="30">
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+</a>
+            </div>
     </div>
 </nav>
 
-<div style="text-align:center; margin-top:50px;">
-    <h1>Productos:</h1>
-</div>
-
+    <nav class="navbar navbar-expand-lg navbar-light navbar2">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto text-uppercase fw-semibold">
+                    <li class="nav-item"><a class="nav-link px-3" href="/main">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/productos">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/main#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/comercialización">Comercialización</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/contacto">Contáctanos</a>
+                    <li class="nav-item"><a class="nav-link px-3" href="/términos">Términos y Usos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 <div class = "container my-5">
     <div class = "row g-4">
         <div class = "col-12 col-md-6 col-lg-3">
@@ -146,6 +161,11 @@
     </div>
 </div>
 
-</body>
+<nav class="navbar navbar-expand-lg navbar-dark navbar2">
+    <a class="navbar-brand mx-auto">
+        <p><br>Copyright La Dejada Padel - Tel: 3989821394 - 2026</p>
+    </a>
+</nav>
 
+</body>
 </html>
