@@ -30,3 +30,13 @@
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
+.banner-promo {
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
