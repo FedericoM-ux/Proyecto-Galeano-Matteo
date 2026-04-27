@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+                            <button type="submit" class="btn btn-success btn-lg">Enviar Mensaje</button>
                         </div>
                     </form>
                 </div>

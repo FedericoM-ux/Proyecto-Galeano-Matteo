@@ -53,6 +53,10 @@
 <head>
 
 <div class="container my-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold display-6 text-dark">Términos y Usos</h2>
+        <hr class="mx-auto" style="width: 50px; height: 3px; background-color: #1a5928; opacity: 1;">
+    </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
@@ -193,14 +197,6 @@
         </div>
     </div>
 </div>
-
-<!-- <div style="text-align:center; margin-top:50px;">
-    <h1>Términos y Usos</h1>
-        <br><b>10. Contacto</b>
-        <br> Si tienes dudas sobre estos Terminos, puedes contactarnos a traves de nuestro Whatsapp oficial
-        o en nuestros puntos de venta fisicos.
-    </p>
-</div> -->
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar2">
     <a class="navbar-brand mx-auto">
