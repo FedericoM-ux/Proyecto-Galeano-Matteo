@@ -37,3 +37,11 @@ Route::get('/términos', function () {
 Route::get('/sobre-nosotros', function () {
     return view('sobre-nosotros');
 });
+
+Route::get('/ventaMayorista', function () {
+    return view('ventaMayorista');
+});
+
+Route::get('/ofertas', function () {
+    return view('ofertas');
+});
