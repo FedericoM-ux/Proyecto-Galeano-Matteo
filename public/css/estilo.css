@@ -3,7 +3,7 @@
 }
 
 .navbar2 {
-    background-color: gray;
+    background-color: gray
 }
 
 .navbarGreenWords {
@@ -67,3 +67,9 @@
     overflow: hidden;
 }
 
+.linea-end{
+    width: 92%;        
+    margin: 40px auto;  
+    border: none;
+    border-top: 1px solid #a1a1a1;
+}
