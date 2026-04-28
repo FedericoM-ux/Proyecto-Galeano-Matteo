@@ -39,7 +39,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto text-uppercase fw-semibold">
-<li class="nav-item"><a class="nav-link px-3" href="/main">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/main">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="/productos">Productos</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="/ofertas">Ofertas</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="/ventaMayorista">Venta Mayorista</a></li>

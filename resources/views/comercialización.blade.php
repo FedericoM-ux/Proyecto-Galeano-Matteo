@@ -108,13 +108,7 @@
         <div class="col-12 col-md-7 col-lg-6">
             <h2 class="text-center fw-bold mb-4 text-uppercase">Nuestra Ubicación</h2>
             <div class="ratio ratio-16x9 shadow-sm rounded border overflow-hidden">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.046359516641!2d-58.8188166!3d-27.4678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456ca3c37652bd%3A0xc397b2ed77ab41f7!2sRafaela%20%26%20Professor%20Pedro%20Crespo%2C%20W3400%20Corrientes!5e0!3m2!1ses-419!2sar!4v1714000000000!5m2!1ses-419!2sar" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3539.1196500133583!2d-58.831813274683974!3d-27.49665412630397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1777390430012!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="text-center mt-3">
                 <p class="text-muted small">
