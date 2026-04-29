@@ -1,14 +1,23 @@
 @extends('plantilla')
 @section('contenido')
 <div id="carouselPadel" class="carousel slide" data-bs-ride="carousel">
+
     <div class="carousel-inner">
+
         <div class="carousel-item active">
-            <img src="{{ asset('images/5450006.jpeg') }}" class="d-block w-100 h-auto" alt="Palas Bullpadel">
+            <img src="{{ asset('images/5450006.PNG') }}" class="d-block w-100" alt="Imagen 1">
         </div>
+
+        <div class="carousel-item">
+            <img src="{{ asset('images/babolat-carrusel.PNG') }}" class="d-block w-100" alt="Imagen 2">
+        </div>
+
     </div>
+
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselPadel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </button>
+
     <button class="carousel-control-next" type="button" data-bs-target="#carouselPadel" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
@@ -73,7 +82,7 @@
 
 <div class="separadorG"></div>
 
-<div class="main-banner-section position-relative text-white overflow-hidden mb-5" style="background-image: url('{{ asset('images/babolat-main.jpg') }}');">
+<div class="main-banner-section position-relative text-white overflow-hidden mb-5" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('{{ asset('images/babolat-main.jpg') }}');">
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
 
     <div class="container position-relative z-index-1 py-5">
@@ -138,7 +147,7 @@
 
 <div class="separadorG"></div>
 
-<div class="main-banner-section position-relative text-white overflow-hidden mb-5" style="background-image: url('{{ asset('images/adidas-main.jpg') }}');">
+<div class="main-banner-section position-relative text-white overflow-hidden mb-5" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('{{ asset('images/adidas-main.jpg') }}');">
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
 
     <div class="container position-relative z-index-1 py-5">
@@ -203,7 +212,7 @@
 
 <div class="separadorG"></div>
 
-<div class="main-banner-section position-relative text-white overflow-hidden mb-5" style="background-image: url('{{ asset('images/Palas-bullpadel---2026.png') }}');">
+<div class="main-banner-section position-relative text-white overflow-hidden mb-5" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('{{ asset('images/Palas-bullpadel---2026.png') }}');">
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-black opacity-25"></div>
 
     <div class="container position-relative z-index-1 py-5">
