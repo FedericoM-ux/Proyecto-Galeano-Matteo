@@ -5,6 +5,9 @@
     padding:0;
 }
 
+.img-transparent{
+    opacity: 0.5;
+}
 .navbar2 {
     background-color: gray
 }
@@ -52,9 +55,15 @@
     padding:0;
 }
 
-.carousel-item img {
-    height: 450px;
-    object-fit: cover;
+.carousel-item img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+#carouselPadel{
+    margin-bottom:0;
+    padding-bottom:0;
 }
 
 .info-section {
@@ -75,6 +84,7 @@
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
+    opacity: 0.5;
 }
 
 .linea-end{
@@ -129,7 +139,7 @@
 .nav-item{
     margin:10px 0;
 }
-
 }
+
 
 
