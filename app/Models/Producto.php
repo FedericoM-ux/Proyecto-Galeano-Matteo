@@ -4,8 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model
-{
+class Producto extends Model {
+ use HasFactory, SoftDeletes;
+ protected $table = 'productos';
+ protected $fillable = ['nombre', 'descripcion', 'precio', 'stock'];
+}
+
 protected $fillable = [
 'nombre',
 'descripcion',
