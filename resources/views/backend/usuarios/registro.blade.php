@@ -6,15 +6,25 @@
     <div class="row justify-content-center">
         <div class="col-md-5"> <div class="card shadow border-0 p-4">
                 <div class="card-body">
-                    <h3 class="text-center mb-4 fw-bold">Iniciar Sesión</h3>
+                    <h3 class="text-center mb-4 fw-bold">Registrarse</h3>
                     
                     <form>
+                        <div class="mb-3">
+                            <label class="form-label text-secondary">Nombre y Apellido</label>
+                            <input type="name" class="form-control" placeholder="Nombre y Apellido...">
+                        </div>
+
                         <div class="mb-3">
                             <label class="form-label text-secondary">Correo Electrónico</label>
                             <input type="email" class="form-control" placeholder="nombre@ejemplo.com">
                             <div class="form-text text-muted">
                                 Nosotros nunca compartiremos tu email con nadie más.
                             </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label text-secondary">Teléfono</label>
+                            <input type="number" class="form-control" placeholder="379...">
                         </div>
 
                         <div class="mb-3">

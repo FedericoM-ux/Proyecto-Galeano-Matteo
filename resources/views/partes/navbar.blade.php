@@ -18,7 +18,7 @@
 
     <div class="col-12 col-md-3 d-flex justify-content-center justify-content-md-end gap-3">
     
-        <a href="/user">
+        <a href="/login">
             <img src="{{ asset('images/user.svg') }}" height="28">
         </a>
 

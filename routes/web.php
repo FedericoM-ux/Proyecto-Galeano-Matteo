@@ -14,8 +14,12 @@ Route::get('/shop', function () {
     return view('shop');
 });
 
-Route::get('/user', function () {
-    return view('user');
+/*Login sin protección*/
+Route::get('/login', [AuthControllerphp::class, 'formularioLogin']);
+
+/*doble proteccion*/
+middleware(['auth','rol.admin'])->group(function(){
+Route::get('/login', [AuthControllerphp::class, 'formularioLogin']);
 });
 
 Route::get('/productos', function () {
