@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('main');
@@ -14,12 +15,12 @@ Route::get('/shop', function () {
     return view('shop');
 });
 
-/*Login sin protección*/
-Route::get('/login', [AuthControllerphp::class, 'formularioLogin']);
+Route::get('/registro', [AuthController::class, 'formularioRegistro'])->name('registro');
 
-/*doble proteccion*/
-middleware(['auth','rol.admin'])->group(function(){
-Route::get('/login', [AuthControllerphp::class, 'formularioLogin']);
+Route::get('/login', [AuthController::class, 'formularioLogin'])->name('login');
+
+Route::middleware(['auth','rol.admin'])->group(function(){
+    Route::get('/admin', [AuthController::class, 'dashboard'])->name('admin.dashboard');
 });
 
 Route::get('/productos', function () {
