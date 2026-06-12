@@ -18,9 +18,20 @@
 
     <div class="col-12 col-md-3 d-flex justify-content-center justify-content-md-end gap-3">
     
-        <a href="/login">
-            <img src="{{ asset('images/user.svg') }}" height="28">
-        </a>
+        <div class="dropdown">
+    <a href="#" class="text-white text-decoration-none dropdown-toggle" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="{{ asset('images/user.svg') }}" height="28">
+    </a>
+
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+        <li>
+            <a class="dropdown-item" href="/login">Iniciar sesión</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="/registro">Registrarse</a>
+        </li>
+    </ul>
+</div>
 
         <a href="/shop" class="position-relative">
             <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
