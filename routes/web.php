@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\CarritoController;
 
 Route::get('/', function () {
     return view('main');
@@ -18,7 +21,11 @@ Route::get('/shop', function () {
 
 Route::get('/registro', [AuthController::class, 'formularioRegistro'])->name('registro');
 
+Route::post('/registro', [AuthController::class, 'registrar'])->name('registro.guardar');
+
 Route::get('/login', [AuthController::class, 'formularioLogin'])->name('login');
+
+Route::post('/login', [AuthController::class, 'autenticar'])->name('login.autenticar');
 
 Route::middleware(['auth','rol.admin'])->group(function(){
     Route::get('/admin', [AuthController::class, 'dashboard'])->name('admin.dashboard');
@@ -51,6 +58,8 @@ Route::get('/contacto', function () {
     return view('contacto');
 });
 
+Route::post('/contacto', [ContactoController::class, 'store'])->name('contacto.store');
+
 Route::get('/términos', function () {
     return view('términos');
 });
@@ -68,3 +77,9 @@ Route::get('/ofertas', function () {
 });
 
 Route::get('/admin-test', [AdminController::class, 'dashboard']);
+
+Route::get('/cliente', function () {
+    return view('backend.usuarios.cliente');
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

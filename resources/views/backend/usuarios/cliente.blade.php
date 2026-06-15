@@ -1,10 +1,18 @@
 @extends('plantilla')
 @section('contenido')
-<div class="container">
-    <h1>Panel de Cliente</h1>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+    <div class="text-center">
+        <h1 class="mb-3">Panel de Cliente</h1>
 
-    <p>Hola {{ auth()->user()->name }}</p>
+        <img src="{{ asset('images/user.svg') }}" height="30" class="mb-2">
 
-    <a href="/shop">Ir a la tienda</a>
+        <div class="text-muted fs-5 mb-3">
+            Bienvenido, {{ auth()->user()->nombre }}
+        </div>
+
+        <a href="/shop" class="btn btn-success">
+            Ir a la Tienda
+        </a>
+    </div>
 </div>
 @endsection

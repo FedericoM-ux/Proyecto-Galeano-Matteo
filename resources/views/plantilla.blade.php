@@ -10,8 +10,8 @@
 </head>
 
 <body>
-@include('partes.navbar')
 @include('partes.header')
+@include('partes.navbar')
 
 <main>
  @yield('contenido')
