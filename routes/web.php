@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('main');
@@ -65,3 +66,5 @@ Route::get('/ventaMayorista', function () {
 Route::get('/ofertas', function () {
     return view('ofertas');
 });
+
+Route::get('/admin-test', [AdminController::class, 'dashboard']);
