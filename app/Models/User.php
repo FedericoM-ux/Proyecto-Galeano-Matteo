@@ -11,14 +11,14 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     // Indicamos explícitamente la tabla por si las dudas
-    protected $table = 'users';
+    protected $table = 'usuarios';
 
     // Campos permitidos para llenado masivo (¡Sin usar 'this'!)
     protected $fillable = [
-        'name',
+        'nombre',
         'email',
         'password',
-        'rol', // Requerido por la cátedra
+        'rol_id', // Requerido por la cátedra
     ];
 
     // Ocultar campos sensibles en las consultas
@@ -29,8 +29,7 @@ class User extends Authenticatable
 
     // Conversión de tipos de datos
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    'password' => 'hashed',
+];
 }
 

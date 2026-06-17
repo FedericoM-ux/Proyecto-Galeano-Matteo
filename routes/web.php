@@ -18,10 +18,6 @@ Route::get('/ventaMayorista', [ProductoController::class, 'mayorista']);
 Route::get('/ofertas', [ProductoController::class, 'ofertas']);
 // ---------------------------------------------------
 
-Route::get('/shop', function () {
-    return view('shop');
-});
-
 // --- AUTENTICACIÓN ---
 Route::get('/registro', [AuthController::class, 'formularioRegistro'])->name('registro');
 Route::post('/registro', [AuthController::class, 'registrar'])->name('registro.guardar');
@@ -82,3 +78,5 @@ Route::get('/cliente', function () {
 // --- RECURSOS (RESOURCE) ---
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('productos', ProductoController::class);
+
+Route::get('/comprobante/{id}', [CarritoController::class, 'comprobante'])->name('comprobante');

@@ -74,9 +74,9 @@
                     </ul>
                 </div>
 
-                <a href="/shop" class="position-relative">
+                <a href="/carrito" class="position-relative">
                     <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $cartCount }}</span>
                 </a>
             </div>
 
