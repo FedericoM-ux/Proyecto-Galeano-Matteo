@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\UsuarioController;
 
 Route::get('/', function () {
     return view('main');
@@ -83,3 +84,5 @@ Route::get('/cliente', function () {
 });
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::resource('usuarios', UsuarioController::class);

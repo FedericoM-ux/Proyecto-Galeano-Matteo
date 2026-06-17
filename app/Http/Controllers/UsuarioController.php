@@ -32,11 +32,11 @@ class UsuarioController extends Controller
  $request->validate([
  'nombre' => 'required|string|max:100',
  'email' => 'required|email|unique:usuarios',
- 'password' => 'required|min:8|confirmed', // busca campo password_confirmation
+ 'password' => 'required|min:6|confirmed', // busca campo password_confirmation
  'rol_id' => 'required|exists:roles,id',
  ]);
  Usuario::create($request->only(['nombre', 'email', 'password', 'rol_id']));
- return redirect()->route('usuarios.index')->with('exito', 'Usuario registrado.');
+ return redirect()->route('admin.dashboard')->with('success', 'Usuario registrado.');
 }
 
 
@@ -61,14 +61,21 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
-        //
+        $usuario->update([
+        'nombre' => $request->nombre,
+        'email' => $request->email,
+        'rol_id' => $request->rol_id,
+    ]);
+
+    return redirect()->route('admin.dashboard')
+        ->with('success', 'Usuario actualizado correctamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Usuario $usuario) {
- $usuario->delete(); // borrado lógico
- return redirect()->route('usuarios.index')->with('exito', 'Usuario dado de baja.');
-}
+        $usuario->forceDelete(); // borrado lógico
+        return redirect()->route('admin.dashboard')->with('success', 'Usuario dado de baja.');
+    }
 }

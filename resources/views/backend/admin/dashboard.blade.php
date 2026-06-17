@@ -1,37 +1,23 @@
 @extends('plantilla')
-
 @section('contenido')
-<div class="container-fluid p-0">
-    <style>
-        .sidebar-cool {
-            min-height: calc(100vh - 56px);
-            background-color: #242939;
-        }
-        .sidebar-cool .nav-link {
-            color: #a4b0be;
-            padding: 12px 20px;
-            font-weight: 500;
-        }
-        .sidebar-cool .nav-link:hover, .sidebar-cool .nav-link.active {
-            color: #ffffff;
-            background-color: #32384e;
-        }
-        .card-metric {
-            border-radius: 10px;
-            transition: transform 0.2s;
-        }
-        .card-metric:hover {
-            transform: translateY(-5px);
-        }
-    </style>
 
+@if($errors->any())
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<div class="container-fluid p-0">
     <div class="row g-0">
         <div class="col-md-3 col-lg-2 sidebar-cool d-none d-md-block shadow">
             <div class="pt-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bar-chart-line me-2"></i> Charts</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-table me-2"></i> Tables</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i> Usuarios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bar-chart-line me-2"></i> Productos</a></li>
                 </ul>
             </div>
         </div>
@@ -95,7 +81,7 @@
                                             <td class="fw-semibold">{{ $user->nombre }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                @if($user->rol->nombre == 'Admin')
+                                                @if($user->rol->nombre == 'admin')
                                                     <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill">Admin</span>
                                                 @else
                                                     <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">Cliente</span>
@@ -129,7 +115,7 @@
                                                         <div class="modal-body">
                                                             <div class="mb-3">
                                                                 <label class="form-label">Nombre</label>
-                                                                <input type="text" name="name" class="form-control" value="{{ $user->name }}" required>
+                                                                <input type="text" name="nombre" class="form-control" value="{{ $user->nombre }}" required>
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label class="form-label">Email</label>
@@ -137,9 +123,9 @@
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label class="form-label">Rol</label>
-                                                                <select name="role" class="form-select" required>
-                                                                    <option value="Cliente" {{ $user->rol->nombre == 'Cliente' ? 'selected' : '' }}>Cliente</option>
-                                                                    <option value="Admin" {{ $user->rol->nombre == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                                                <select name="rol_id" class="form-select" required>
+                                                                    <option value="2" {{ $user->rol_id == 2 ? 'selected' : '' }}>Cliente</option>
+                                                                    <option value="1" {{ $user->rol_id == 1 ? 'selected' : '' }}>Admin</option>
                                                                 </select>
                                                             </div>
                                                             <div class="mb-3">
@@ -180,7 +166,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label">Nombre Completo</label>
-                        <input type="text" name="name" class="form-control" placeholder="Ej. Juan Pérez" required>
+                        <input type="text" name="nombre" class="form-control" placeholder="Ej. Juan Pérez" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Correo Electrónico</label>
@@ -188,14 +174,19 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Rol del Sistema</label>
-                        <select name="role" class="form-select" required>
-                            <option value="Cliente">Cliente</option>
-                            <option value="Admin">Admin</option>
+                        <select name="rol_id" class="form-select" required>
+                            <option value="2">Cliente</option>
+                            <option value="1">Admin</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Contraseña</label>
                         <input type="password" name="password" class="form-control" placeholder="Mínimo 6 caracteres" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Confirmar Contraseña</label>
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="Repite la contraseña" required>
                     </div>
                 </div>
                 <div class="modal-footer">

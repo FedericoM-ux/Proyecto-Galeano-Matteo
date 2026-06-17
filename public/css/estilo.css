@@ -140,6 +140,29 @@
     margin:10px 0;
 }
 }
+.sidebar-cool {
+    min-height: calc(100vh - 56px);
+    background-color: #242939;
+}
+    
+.sidebar-cool .nav-link {
+    color: #a4b0be;
+    padding: 12px 20px;
+    font-weight: 500;
+}
+    
+.sidebar-cool .nav-link:hover, .sidebar-cool .nav-link.active {
+    color: #ffffff;
+    background-color: #32384e;
+}
 
+.card-metric {
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+    
+.card-metric:hover {
+    transform: translateY(-5px);
+}
 
 
