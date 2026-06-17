@@ -16,13 +16,21 @@ class CarritoController extends Controller {
             );     
     } 
 
-    public function index()    
-    {        
-        $carrito = $this->obtenerCarrito();         
-        // with('producto') evita N+1: una sola consulta para todos los productos         
-        $items = $carrito->detalles()->with('producto')->get();         
-        return view('backend.usuarios.carrito', compact('carrito', 'items'));     
-    } 
+    public function index()
+{
+    // Obtenemos el carrito de la sesión (si no existe, pasamos un array vacío)
+    $carrito = session()->get('cart', []);
+    
+    // Calculamos el total de la compra
+    $total = 0;
+    foreach ($carrito as $item) {
+        $total += $item['precio'] * $item['cantidad'];
+    }
+
+    // Retornamos la vista del carrito enviando los datos
+    return view('backend.usuarios.cliente', compact('carrito', 'total')); 
+    // Nota: Ajustá 'backend.usuarios.cliente' por la vista donde quieras mostrar tu tabla del carrito
+}
 
     public function agregar(Request $request)     {         $request->validate([             'producto_id' => 'required|exists:productos,id',             'cantidad'    => 'required|integer|min:1',         ]);         $producto = Producto::findOrFail($request->producto_id); 
     if ($producto->stock < $request->cantidad) {             return back()->with('error', 'No hay suficiente stock');         }         $carrito = $this->obtenerCarrito(); 

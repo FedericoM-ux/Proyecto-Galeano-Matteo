@@ -17,7 +17,7 @@
             <div class="pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i> Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bar-chart-line me-2"></i> Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.crearProd.index') }}"><i class="bi bi-bar-chart-line me-2"></i> Productos</a></li>
                 </ul>
             </div>
         </div>
