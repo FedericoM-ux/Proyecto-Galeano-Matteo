@@ -72,29 +72,159 @@
                                             <th>Descripción</th>
                                             <th>Precio</th>
                                             <th>Stock</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse($productos as $prod)
-                                        <tr>
-                                            <td>{{ $prod->id }}</td>
-                                            <td class="fw-semibold">{{ $prod->nombre }}</td>
-                                            <td class="text-muted small">{{ $prod->descripcion }}</td>
-                                            <td class="fw-bold">${{ number_format($prod->precio, 0, ',', '.') }}</td>
-                                            <td>
-                                                @if($prod->stock > 0)
-                                                    <span class="badge bg-success-subtle text-success px-2 py-1">{{ $prod->stock }} unidades</span>
-                                                @else
-                                                    <span class="badge bg-danger-subtle text-danger px-2 py-1">Sin Stock</span>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                        @empty
-                                        <tr>
-                                            <td colspan="5" class="text-center text-muted py-3">No hay productos cargados actualmente.</td>
-                                        </tr>
-                                        @endforelse
-                                    </tbody>
+    @forelse($productos as $prod)
+    <tr>
+        <td>{{ $prod->id }}</td>
+        <td class="fw-semibold">{{ $prod->nombre }}</td>
+        <td class="text-muted small">{{ $prod->descripcion }}</td>
+        <td class="fw-bold">${{ number_format($prod->precio, 0, ',', '.') }}</td>
+
+        <td>
+            @if($prod->stock > 0)
+                <span class="badge bg-success-subtle text-success px-2 py-1">
+                    {{ $prod->stock }} unidades
+                </span>
+            @else
+                <span class="badge bg-danger-subtle text-danger px-2 py-1">
+                    Sin Stock
+                </span>
+            @endif
+        </td>
+
+        <td>
+            <button
+                class="btn btn-sm btn-outline-warning me-1"
+                data-bs-toggle="modal"
+                data-bs-target="#modalEditar{{ $prod->id }}">
+                <i class="bi bi-pencil"></i>
+            </button>
+
+            <form action="{{ route('productos.destroy', $prod->id) }}"
+                  method="POST"
+                  class="d-inline"
+                  onsubmit="return confirm('¿Seguro que deseas eliminar este producto?')">
+
+                @csrf
+                @method('DELETE')
+
+                <button type="submit" class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash"></i>
+                </button>
+
+            </form>
+        </td>
+    </tr>
+
+    <div class="modal fade" id="modalEditar{{ $prod->id }}" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+
+            <form action="{{ route('productos.update', $prod->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold">
+                            Editar Producto
+                        </h5>
+
+                        <button type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal">
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Nombre
+                            </label>
+
+                            <input type="text"
+                                   name="nombre"
+                                   class="form-control"
+                                   value="{{ $prod->nombre }}"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">
+                                Descripción
+                            </label>
+
+                            <textarea name="descripcion"
+                                      class="form-control"
+                                      rows="3"
+                                      required>{{ $prod->descripcion }}</textarea>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Precio
+                                </label>
+
+                                <input type="number"
+                                       step="0.01"
+                                       name="precio"
+                                       class="form-control"
+                                       value="{{ $prod->precio }}"
+                                       required>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    Stock
+                                </label>
+
+                                <input type="number"
+                                       name="stock"
+                                       class="form-control"
+                                       value="{{ $prod->stock }}"
+                                       required>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <button type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+
+                        <button type="submit"
+                                class="btn btn-warning">
+                            Guardar Cambios
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    @empty
+    <tr>
+        <td colspan="6" class="text-center text-muted py-3">
+            No hay productos cargados actualmente.
+        </td>
+    </tr>
+    @endforelse
+</tbody>
                                 </table>
                             </div>
                         </div>

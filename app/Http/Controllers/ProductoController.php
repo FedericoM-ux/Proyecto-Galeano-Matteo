@@ -31,4 +31,24 @@ class ProductoController extends Controller
         $productos = Producto::all();
         return view('ventaMayorista', compact('productos'));
     }
+
+    public function update(Request $request, Producto $producto)
+    {
+    $request->validate([
+        'nombre' => 'required',
+        'descripcion' => 'required',
+        'precio' => 'required|numeric',
+        'stock' => 'required|integer'
+    ]);
+
+    $producto->update($request->all());
+
+    return redirect()->back()->with('success', 'Producto actualizado correctamente');
+    }
+
+    public function destroy(Producto $producto)
+    {
+    $producto->delete();
+    return redirect()->back()->with('success', 'Producto eliminado correctamente');
+    }
 }

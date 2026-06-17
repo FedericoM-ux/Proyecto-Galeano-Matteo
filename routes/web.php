@@ -6,9 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\CarritoController;
-
 use App\Http\Controllers\UsuarioController;
-
 use App\Http\Controllers\ProductoController;
 
 
@@ -82,4 +80,4 @@ Route::get('/cliente', function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('usuarios', UsuarioController::class);
-
+Route::resource('productos', ProductoController::class);
