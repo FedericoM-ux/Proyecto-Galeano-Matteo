@@ -9,9 +9,13 @@
             </div>
 
             <div class="col-12 col-md-6 mb-2 mb-md-0">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Buscar productos...">
-                    <button class="btn btn-outline-light">Buscar</button>
+                <form action="/productos" method="GET" class="d-flex">
+                    <input class="form-control me-2" 
+                           type="search" 
+                           name="buscar" 
+                           placeholder="Buscar productos..." 
+                           value="{{ request('buscar') }}">
+                    <button type="submit" class="btn btn-outline-light">Buscar</button>
                 </form>
             </div>
 
@@ -47,7 +51,6 @@
                                 </span>
                             </li>
 
-                            <!-- CONDICIÓN PARA EL ADMIN: Mismo color del menú, centrado y con icono alineado -->
                             @if(auth()->user()->rol->nombre == 'admin')
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">

@@ -20,6 +20,10 @@
 
                 <form action="/productos" method="GET">
                     
+                    @if(request()->filled('buscar'))
+                        <input type="hidden" name="buscar" value="{{ request('buscar') }}">
+                    @endif
+                    
                     <div class="mb-3">
                         <label class="form-label fw-semibold small text-uppercase text-muted">Género</label>
                         <select name="genero" class="form-select form-select-sm">
@@ -64,7 +68,7 @@
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-dark btn-sm fw-bold py-2">APLICAR FILTROS</button>
                         
-                        @if(request()->hasAny(['genero', 'marca', 'talle', 'precio_min', 'precio_max']))
+                        @if(request()->hasAny(['buscar', 'genero', 'marca', 'talle', 'precio_min', 'precio_max']))
                             <a href="/productos" class="btn btn-outline-secondary btn-sm small py-2">Limpiar Filtros</a>
                         @endif
                     </div>

@@ -14,11 +14,20 @@ class ProductoController extends Controller
         return view('main', compact('productos'));
     }
 
-    // 2. Catálogo General CON FILTROS DINÁMICOS
+    // 2. Catálogo General CON FILTROS DINÁMICOS Y BUSCADOR POR TEXTO
     public function index(Request $request)
     {
         // Empezamos la consulta filtrando por la sección 'productos'
         $query = Producto::whereJsonContains('secciones', 'productos');
+
+        // NUEVO: Buscador por Texto (Nombre o Descripción)
+        $query->when($request->filled('buscar'), function ($q) use ($request) {
+            $termino = '%' . $request->buscar . '%';
+            return $q->where(function ($subQuery) use ($termino) {
+                $subQuery->where('nombre', 'LIKE', $termino)
+                         ->orWhere('descripcion', 'LIKE', $termino);
+            });
+        });
 
         // Filtro por Género (solo si se seleccionó uno)
         $query->when($request->filled('genero'), function ($q) use ($request) {
@@ -76,9 +85,9 @@ class ProductoController extends Controller
             'stock' => 'required|integer|min:0',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
             'secciones' => 'nullable|array',
-            'genero' => 'nullable|string|max:20', // <-- AGREGADO
-            'marca' => 'nullable|string|max:50',  // <-- AGREGADO
-            'talle' => 'nullable|string|max:10',  // <-- AGREGADO
+            'genero' => 'nullable|string|max:20', 
+            'marca' => 'nullable|string|max:50',  
+            'talle' => 'nullable|string|max:10',  
         ]);
 
         $rutaImagen = null;
@@ -98,7 +107,7 @@ class ProductoController extends Controller
             'stock' => $request->stock,
             'url_imagen' => $rutaImagen,
             'secciones' => $request->secciones ?? ['productos'],
-            'genero' => $request->genero ?: null, // Si viene vacío, guarda NULL
+            'genero' => $request->genero ?: null, 
             'marca' => $request->marca ?: null,
             'talle' => $request->talle ?: null,
         ]);
@@ -116,9 +125,9 @@ class ProductoController extends Controller
             'stock' => 'required|integer|min:0',
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
             'secciones' => 'nullable|array', 
-            'genero' => 'nullable|string|max:20', // <-- AGREGADO
-            'marca' => 'nullable|string|max:50',  // <-- AGREGADO
-            'talle' => 'nullable|string|max:10',  // <-- AGREGADO
+            'genero' => 'nullable|string|max:20', 
+            'marca' => 'nullable|string|max:50',  
+            'talle' => 'nullable|string|max:10',  
         ]);
 
         $producto->nombre = $request->nombre;
@@ -128,7 +137,7 @@ class ProductoController extends Controller
         $producto->secciones = $request->secciones ?? []; 
         
         // Asignamos los nuevos valores filtrables
-        $producto->genero = $request->genero ?: null; // Convierte a NULL si no se selecciona ninguno
+        $producto->genero = $request->genero ?: null; 
         $producto->marca = $request->marca ?: null;
         $producto->talle = $request->talle ?: null;
 
