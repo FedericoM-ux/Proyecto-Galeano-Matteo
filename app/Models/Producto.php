@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes; // <-- AGREGADO para soportar softDeletes de tu migración
+use Illuminate\Database\Eloquent\SoftDeletes; // Sostiene las eliminaciones lógicas de tu migración
 
 class Producto extends Model {
-    use HasFactory, SoftDeletes; // <-- AGREGADO SoftDeletes acá
+    use HasFactory, SoftDeletes;
 
     protected $table = 'productos';
 
@@ -18,13 +18,16 @@ class Producto extends Model {
         'stock',
         'url_imagen',
         'activo',
-        'secciones', // <-- AGREGADO: Permitimos que se pueda guardar este campo
+        'secciones',
+        'genero', 
+        'marca',  
+        'talle',  
     ];
 
     protected $casts = [
         'precio' => 'decimal:2',
         'stock' => 'integer',
         'activo' => 'boolean',
-        'secciones' => 'array', // <-- AGREGADO: Crucial para que in_array() no tire error
+        'secciones' => 'array', 
     ];
 }

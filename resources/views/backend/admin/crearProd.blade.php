@@ -109,7 +109,7 @@
                                         </tr>
 
                                         <div class="modal fade" id="modalEditar{{ $prod->id }}" tabindex="-1" aria-hidden="true">
-                                            <div class="modal-dialog">
+                                            <div class="modal-dialog modal-lg">
                                                 <form action="{{ route('productos.update', $prod->id) }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
@@ -151,7 +151,39 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="mb-3">
+                                                            <div class="row border-top pt-3 mt-2 bg-light p-2 rounded">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label fw-semibold small">Género</label>
+                                                                    <select name="genero" class="form-select form-select-sm">
+                                                                        <option value="" {{ $prod->genero == null ? 'selected' : '' }}>No aplica / Sin género</option>
+                                                                        <option value="unisex" {{ $prod->genero == 'unisex' ? 'selected' : '' }}>Unisex</option>
+                                                                        <option value="hombre" {{ $prod->genero == 'hombre' ? 'selected' : '' }}>Hombre</option>
+                                                                        <option value="mujer" {{ $prod->genero == 'mujer' ? 'selected' : '' }}>Mujer</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label fw-semibold small">Marca</label>
+                                                                    <select name="marca" class="form-select form-select-sm">
+                                                                        <option value="" {{ $prod->marca == null ? 'selected' : '' }}>No aplica / Otra</option>
+                                                                        <option value="bullpadel" {{ $prod->marca == 'bullpadel' ? 'selected' : '' }}>Bullpadel</option>
+                                                                        <option value="adidas" {{ $prod->marca == 'adidas' ? 'selected' : '' }}>Adidas</option>
+                                                                        <option value="babolat" {{ $prod->marca == 'babolat' ? 'selected' : '' }}>Babolat</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label fw-semibold small">Talle</label>
+                                                                    <select name="talle" class="form-select form-select-sm">
+                                                                        <option value="" {{ $prod->talle == null ? 'selected' : '' }}>No aplica / Sin talle</option>
+                                                                        <option value="s" {{ $prod->talle == 's' ? 'selected' : '' }}>S</option>
+                                                                        <option value="m" {{ $prod->talle == 'm' ? 'selected' : '' }}>M</option>
+                                                                        <option value="l" {{ $prod->talle == 'l' ? 'selected' : '' }}>L</option>
+                                                                        <option value="xl" {{ $prod->talle == 'xl' ? 'selected' : '' }}>XL</option>
+                                                                        <option value="xxl" {{ $prod->talle == 'xxl' ? 'selected' : '' }}>XXL</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="mb-3 mt-3">
                                                                 <label class="form-label fw-semibold d-block">¿Dónde se mostrará este producto?</label>
                                                                 @php
                                                                     $seccionesActuales = $prod->secciones ?? [];
@@ -203,7 +235,7 @@
 </div>
 
 <div class="modal fade" id="modalCrearProducto" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <form action="{{ route('admin.crearProd.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
@@ -243,7 +275,39 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="row border-top pt-3 mt-2 bg-light p-2 rounded">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-semibold small">Género (Opcional)</label>
+                            <select name="genero" class="form-select form-select-sm">
+                                <option value="">No aplica / Sin género (Ej. Pelotas)</option>
+                                <option value="unisex">Unisex (Ej. Paletas)</option>
+                                <option value="hombre">Hombre</option>
+                                <option value="mujer">Mujer</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-semibold small">Marca (Opcional)</label>
+                            <select name="marca" class="form-select form-select-sm">
+                                <option value="">No aplica / Otra</option>
+                                <option value="bullpadel">Bullpadel</option>
+                                <option value="adidas">Adidas</option>
+                                <option value="babolat">Babolat</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-semibold small">Talle (Opcional)</label>
+                            <select name="talle" class="form-select form-select-sm">
+                                <option value="">No aplica / Sin talle</option>
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                                <option value="xxl">XXL</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 mt-3">
                         <label class="form-label fw-semibold d-block">¿Dónde se mostrará este producto?</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" name="secciones[]" value="inicio" id="crear_inicio">
