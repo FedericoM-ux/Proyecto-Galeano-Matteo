@@ -4,7 +4,7 @@
         <input type="checkbox" id="menu-toggle">
 
         <label for="menu-toggle" class="navbar-toggler">
-        <img src="{{ asset('images/menu.svg') }}" width="40" alt="Menú">
+        <img src="{{ asset('images/simbolo.png') }}" width="40" alt="Menú">
         </label>
 
         <div class="menu-mobile">
