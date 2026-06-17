@@ -134,10 +134,12 @@
                                                                 <label class="form-label">Nombre</label>
                                                                 <input type="text" name="nombre" class="form-control" value="{{ $prod->nombre }}" required>
                                                             </div>
+                                                            
                                                             <div class="mb-3">
                                                                 <label class="form-label">Descripción</label>
                                                                 <textarea name="descripcion" class="form-control" rows="3" required>{{ $prod->descripcion }}</textarea>
                                                             </div>
+                                                            
                                                             <div class="row">
                                                                 <div class="col-md-6 mb-3">
                                                                     <label class="form-label">Precio</label>
@@ -148,6 +150,30 @@
                                                                     <input type="number" name="stock" class="form-control" value="{{ $prod->stock }}" required>
                                                                 </div>
                                                             </div>
+
+                                                            <div class="mb-3">
+                                                                <label class="form-label fw-semibold d-block">¿Dónde se mostrará este producto?</label>
+                                                                @php
+                                                                    $seccionesActuales = $prod->secciones ?? [];
+                                                                @endphp
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox" name="secciones[]" value="inicio" id="edit_inicio{{ $prod->id }}" {{ in_array('inicio', $seccionesActuales) ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="edit_inicio{{ $prod->id }}">Página de Inicio</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox" name="secciones[]" value="productos" id="edit_productos{{ $prod->id }}" {{ in_array('productos', $seccionesActuales) ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="edit_productos{{ $prod->id }}">Productos (Catálogo)</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox" name="secciones[]" value="ofertas" id="edit_ofertas{{ $prod->id }}" {{ in_array('ofertas', $seccionesActuales) ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="edit_ofertas{{ $prod->id }}">Ofertas</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="checkbox" name="secciones[]" value="mayorista" id="edit_mayorista{{ $prod->id }}" {{ in_array('mayorista', $seccionesActuales) ? 'checked' : '' }}>
+                                                                    <label class="form-check-label" for="edit_mayorista{{ $prod->id }}">Venta Mayorista</label>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -214,6 +240,26 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label">Stock Inicial</label>
                             <input type="number" name="stock" class="form-control" placeholder="Ej. 5" value="{{ old('stock') }}" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold d-block">¿Dónde se mostrará este producto?</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="secciones[]" value="inicio" id="crear_inicio">
+                            <label class="form-check-label" for="crear_inicio">Página de Inicio</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="secciones[]" value="productos" id="crear_productos" checked>
+                            <label class="form-check-label" for="crear_productos">Productos (Catálogo)</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="secciones[]" value="ofertas" id="crear_ofertas">
+                            <label class="form-check-label" for="crear_ofertas">Ofertas</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="secciones[]" value="mayorista" id="crear_mayorista">
+                            <label class="form-check-label" for="crear_mayorista">Venta Mayorista</label>
                         </div>
                     </div>
 

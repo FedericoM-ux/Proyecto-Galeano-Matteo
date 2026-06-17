@@ -33,8 +33,11 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['auth', 'rol:admin'])->group(function() {
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
+    // Mantenemos la vista del panel en AdminController
     Route::get('/admin/crearProd', [AdminController::class, 'productosIndex'])->name('admin.crearProd.index');
-    Route::post('/admin/crearProd/guardar', [AdminController::class, 'storeProducto'])->name('admin.crearProd.store');
+    
+    // CAMBIO CLAVE: El guardado del producto nuevo ahora va directo al store de ProductoController
+    Route::post('/admin/crearProd/guardar', [ProductoController::class, 'store'])->name('admin.crearProd.store');
 });
 
 // --- ÁREA CLIENTE Y CARRITO DE COMPRAS ---
@@ -76,8 +79,6 @@ Route::get('/cliente', function () {
     return view('backend.usuarios.cliente');
 });
 
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
+// --- RECURSOS (RESOURCE) ---
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('productos', ProductoController::class);

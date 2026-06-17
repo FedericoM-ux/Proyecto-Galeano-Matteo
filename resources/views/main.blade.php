@@ -23,60 +23,53 @@
     </button>
 </div>
 
-<div class = "container my-5">
-    <div class = "row mb-4">
-        <div class = "col-12 text-center">
-            <h2 class = "fw-bold display-5">PRODUCTOS DESTACADOS</h2>
+<div class="container my-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="fw-bold display-5">PRODUCTOS DESTACADOS</h2>
         </div>
     </div>
 
-    <div class = "row g-4">
-        <div class = "col-6 col-md-6 col-lg-3">
-            <div class = "card h-100 border-0 shadow-sm text-center">
-                <img src="{{ asset('images/paleta-hombre.jpeg') }}" class = "card-img-top p-3"alt="Paleta Hombre">
-                <div class = "card-body">
-                    <p class = "text-muted small mb-1">Paleta Bullpadel Onyx Power 2.0 Rojo</p>
-                    <h5 class = "fw-bold mb-1">$210,000</h5>
-                    <p class = "text-danger small mb-3">3 cuotas de $70,000 sin interes</p>
-                    <button class = "btn btn-dark w-100 fw bold py-2">COMPRAR <i class = "bi bi-cart"></i></button>
+    <div class="row g-4">
+        @forelse($productos as $producto)
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm text-center d-flex flex-column">
+                
+                <img src="{{ $producto->url_imagen ? asset($producto->url_imagen) : asset('images/paleta-hombre.jpeg') }}" 
+                     class="card-img-top p-3" 
+                     alt="{{ $producto->nombre }}">
+                
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <p class="text-muted small mb-1">{{ $producto->nombre }}</p>
+                        
+                        <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
+                        
+                        <p class="text-danger small mb-3">3 cuotas de ${{ number_format($producto->precio / 3, 0, ',', '.') }} sin interés</p>
+                    </div>
+                    
+                    <form action="{{ route('carrito.agregar') }}" method="POST" class="w-100 mt-auto">
+                        @csrf
+                        <input type="hidden" name="producto_id" value="{{ $producto->id }}">
+                        
+                        @if($producto->stock > 0)
+                            <button type="submit" class="btn btn-dark w-100 fw-bold py-2">
+                                COMPRAR <i class="bi bi-cart"></i>
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
+                                SIN STOCK
+                            </button>
+                        @endif
+                    </form>
                 </div>
             </div>
         </div>
-
-        <div class = "col-6 col-md-6 col-lg-3">
-            <div class = "card h-100 border-0 shadow-sm text-center">
-                <img src="{{ asset('images/paleta-mujer.jpeg') }}" class = "card-img-top p-3" alt="Paleta Mujer">
-                <div class = "card-body">
-                    <p class = "text-muted small mb-1">Paleta Bullpadel Indiga Woman 26</p>
-                    <h5 class = "fw-bold mb-1">$280,000</h5>
-                    <p class = "text-danger small mb-3">3 cuotas de $93,333 sin interes</p>
-                    <button class = "btn btn-dark w-100 fw bold py-2">COMPRAR <i class = "bi bi-cart"></i></button>
-                </div>
-            </div>
+        @empty
+        <div class="col-12 text-center text-muted py-3">
+            No hay productos destacados para mostrar en la página de inicio.
         </div>
-        <div class = "col-6 col-md-6 col-lg-3">
-            <div class = "card h-100 border-0 shadow-sm text-center">
-                <img src="{{ asset('images/pelotas-bull.jpeg') }}" class = "card-img-top p-3" alt="Pelotas Bullpadel">
-                <div class = "card-body">
-                    <p class = "text-muted small mb-1">Tubo de Pelotas Bullpadel</p>
-                    <h5 class = "fw-bold mb-1">$13,000</h5>
-                    <p class = "text-danger small mb-3">3 cuotas de $4,333 sin interes</p>
-                    <button class = "btn btn-dark w-100 fw bold py-2">COMPRAR <i class = "bi bi-cart"></i></button>
-                </div>
-            </div>
-        </div>
-
-        <div class = "col-6 col-md-6 col-lg-3">
-            <div class = "card h-100 border-0 shadow-sm text-center">
-                <img src="{{ asset('images/pelotas-xtrust.jpeg') }}" class = "card-img-top p-3" alt="Pelotas X-Trust">
-                <div class = "card-body">
-                    <p class = "text-muted small mb-1">Tubo de Pelotas X-Trust</p>
-                    <h5 class = "fw-bold mb-1">$7,500</h5>
-                    <p class = "text-danger small mb-3">3 cuotas de $2,500 sin interes</p>
-                    <button class = "btn btn-dark w-100 fw bold py-2">COMPRAR <i class = "bi bi-cart"></i></button>
-                </div>
-            </div>
-        </div>
+        @endforelse
     </div>
 </div>
 
@@ -276,11 +269,12 @@
 </div>
 
 <div class="container my-5">
-    <div class="row g-3"> <div class="col-6 col-md-6 col-lg-3">
+    <div class="row g-3"> 
+        <div class="col-6 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3">
                 <div class="d-flex align-items-center">
                     <div class="circulo">
-                    <img src="{{ asset('images/tarjeta2.svg') }}" alt="tajeta" width="15">
+                        <img src="{{ asset('images/tarjeta2.svg') }}" alt="tajeta" width="15">
                     </div>
                     <div>
                         <h6 class="mb-0 fw-bold">Cuotas sin interés</h6>
@@ -294,7 +288,7 @@
             <div class="card h-100 border-0 shadow-sm p-3">
                 <div class="d-flex align-items-center">
                     <div class="circulo">
-                    <img src="{{ asset('images/candado.svg') }}" alt="candado" width="15">
+                        <img src="{{ asset('images/candado.svg') }}" alt="candado" width="15">
                     </div>
                     <div>
                         <h6 class="mb-0 fw-bold">Comprá con seguridad</h6>
@@ -308,7 +302,7 @@
             <div class="card h-100 border-0 shadow-sm p-3">
                 <div class="d-flex align-items-center">
                     <div class="circulo">
-                    <img src="{{ asset('images/camion.svg') }}" alt="camion" width="15">
+                        <img src="{{ asset('images/camion.svg') }}" alt="camion" width="15">
                     </div>
                     <div>
                         <h6 class="mb-0 fw-bold">Envíos a todo el país</h6>
@@ -331,7 +325,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -347,51 +340,51 @@
             <a href="#" class="btn btn-primary rounded-pill px-4">Write a review</a>
         </div>
 
-    <div class="row justify-content-center g-4">
-        <div class="col-md-5">
-            <div class="card border-0 shadow-sm bg-light text-center p-4 position-relative">
-                <button class="btn position-absolute top-50 start-0 translate-middle-y border-0"><i class="bi bi-chevron-left"></i></button>
-                <button class="btn position-absolute top-50 end-0 translate-middle-y border-0"><i class="bi bi-chevron-right"></i></button>
+        <div class="row justify-content-center g-4 mt-2">
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm bg-light text-center p-4 position-relative">
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y border-0"><i class="bi bi-chevron-left"></i></button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y border-0"><i class="bi bi-chevron-right"></i></button>
 
-                <div class="card-body">
-                    <div class="rounded-circle bg-secondary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
-                        S
-                    </div>
-                    <h5 class="card-title mb-0">Soledad Spangaro</h5>
-                    <p class="text-muted small mb-2">January 14</p>
-                    <div class="text-warning mb-3">★★★★★</div>
-                    <p class="card-text italic">"Excelente compra! Pero más me sorprendió la rapidez con la que llegó! Voy a volver a comprar"</p>
-                    <div class="mt-3">
-                        <small class="text-muted">Posted on</small>
-                        <br>
-                        <strong class="text-primary">Google</strong>
+                    <div class="card-body">
+                        <div class="rounded-circle bg-secondary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            S
+                        </div>
+                        <h5 class="card-title mb-0">Soledad Spangaro</h5>
+                        <p class="text-muted small mb-2">January 14</p>
+                        <div class="text-warning mb-3">★★★★★</div>
+                        <p class="card-text italic">"Excelente compra! Pero más me sorprendió la rapidez con la que llegó! Voy a volver a comprar"</p>
+                        <div class="mt-3">
+                            <small class="text-muted">Posted on</small>
+                            <br>
+                            <strong class="text-primary">Google</strong>
+                        </div>
                     </div>
                 </div>
             </div>
-    </div>
 
-        <div class="col-md-5">
-            <div class="card border-0 shadow-sm bg-light text-center p-4 position-relative">
-                <button class="btn position-absolute top-50 start-0 translate-middle-y border-0"><i class="bi bi-chevron-left"></i></button>
-                <button class="btn position-absolute top-50 end-0 translate-middle-y border-0"><i class="bi bi-chevron-right"></i></button>
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm bg-light text-center p-4 position-relative">
+                    <button class="btn position-absolute top-50 start-0 translate-middle-y border-0"><i class="bi bi-chevron-left"></i></button>
+                    <button class="btn position-absolute top-50 end-0 translate-middle-y border-0"><i class="bi bi-chevron-right"></i></button>
 
-                <div class="card-body">
-                    <div class="rounded-circle bg-secondary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
-                        M
-                    </div>
-                    <h5 class="card-title mb-0">Miranda</h5>
-                    <p class="text-muted small mb-2">March 7</p>
-                    <div class="text-warning mb-3">★★★★★</div>
-                    <p class="card-text italic">"El producto llegó en perfecto estado y tal como se veía en la página. La atención fue rápida y clara."</p>
-                    <div class="mt-3">
-                        <small class="text-muted">Posted on</small>
-                        <br>
-                        <strong class="text-primary">Google</strong>
+                    <div class="card-body">
+                        <div class="rounded-circle bg-secondary text-white d-inline-flex align-items-center justify-content-center mb-3" style="width: 50px; height: 50px; font-size: 1.2rem;">
+                            M
+                        </div>
+                        <h5 class="card-title mb-0">Miranda</h5>
+                        <p class="text-muted small mb-2">March 7</p>
+                        <div class="text-warning mb-3">★★★★★</div>
+                        <p class="card-text italic">"El producto llegó en perfecto estado y tal como se veía en la página. La atención fue rápida y clara."</p>
+                        <div class="mt-3">
+                            <small class="text-muted">Posted on</small>
+                            <br>
+                            <strong class="text-primary">Google</strong>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection
