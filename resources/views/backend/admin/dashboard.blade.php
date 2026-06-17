@@ -92,10 +92,10 @@
                                         @foreach($usuarios as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
-                                            <td class="fw-semibold">{{ $user->name }}</td>
+                                            <td class="fw-semibold">{{ $user->nombre }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                @if($user->role == 'Admin')
+                                                @if($user->rol->nombre == 'Admin')
                                                     <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill">Admin</span>
                                                 @else
                                                     <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">Cliente</span>
@@ -138,8 +138,8 @@
                                                             <div class="mb-3">
                                                                 <label class="form-label">Rol</label>
                                                                 <select name="role" class="form-select" required>
-                                                                    <option value="Cliente" {{ $user->role == 'Cliente' ? 'selected' : '' }}>Cliente</option>
-                                                                    <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                                                    <option value="Cliente" {{ $user->rol->nombre == 'Cliente' ? 'selected' : '' }}>Cliente</option>
+                                                                    <option value="Admin" {{ $user->rol->nombre == 'Admin' ? 'selected' : '' }}>Admin</option>
                                                                 </select>
                                                             </div>
                                                             <div class="mb-3">

@@ -27,8 +27,8 @@ Route::get('/login', [AuthController::class, 'formularioLogin'])->name('login');
 
 Route::post('/login', [AuthController::class, 'autenticar'])->name('login.autenticar');
 
-Route::middleware(['auth','rol.admin'])->group(function(){
-    Route::get('/admin', [AuthController::class, 'dashboard'])->name('admin.dashboard');
+Route::middleware(['auth','rol:admin'])->group(function(){
+    Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
 
 Route::middleware(['auth', 'rol:cliente'])->group(function () { 
