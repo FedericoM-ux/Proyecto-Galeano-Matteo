@@ -52,7 +52,16 @@
                 <div>
                     <h3 class="fw-bold m-0">Gestión de Productos</h3>
                 </div>
+
+                <button class="btn btn-primary btn-sm"
+        data-bs-toggle="modal"
+        data-bs-target="#modalCrearProducto">
+    <i class="bi bi-box-seam me-1"></i> Nuevo Producto
+</button>
+
             </div>
+
+            
             <div class="row mb-4">
                 <div class="col-xl-3 col-md-6 mb-3">
                     <div class="card card-metric bg-white border-0 shadow-sm p-3 border-start border-success border-4">

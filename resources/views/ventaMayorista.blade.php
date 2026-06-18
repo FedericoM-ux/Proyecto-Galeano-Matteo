@@ -31,14 +31,72 @@
                         <input type="hidden" name="producto_id" value="{{ $producto->id }}">
                         
                         @if($producto->stock > 0)
-                            <button type="submit" class="btn btn-dark w-100 fw-bold py-2">
-                                COMPRAR <i class="bi bi-cart"></i>
-                            </button>
-                        @else
-                            <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
-                                SIN STOCK
-                            </button>
-                        @endif
+<button type="button"
+        class="btn btn-dark w-100 fw-bold py-2"
+        data-bs-toggle="modal"
+        data-bs-target="#modalOferta{{ $producto->id }}">
+    COMPRAR <i class="bi bi-cart"></i>
+</button>
+@else
+<button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
+    SIN STOCK
+</button>
+@endif
+
+<!-- MODAL -->
+<div class="modal fade" id="modalOferta{{ $producto->id }}" tabindex="-1">
+  <div class="modal-dialog">
+
+    <form action="{{ route('carrito.agregar') }}" method="POST">
+      @csrf
+
+      <input type="hidden" name="producto_id" value="{{ $producto->id }}">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Comprar {{ $producto->nombre }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="mb-3">
+              <span class="badge bg-info text-dark">
+                  Stock disponible: {{ $producto->stock }}
+              </span>
+          </div>
+
+          <label class="form-label">Cantidad</label>
+
+          <input type="number"
+                 name="cantidad"
+                 class="form-control"
+                 min="1"
+                 max="{{ $producto->stock }}"
+                 value="1"
+                 required>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-success">
+            Agregar al carrito
+          </button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
                     </form>
                 </div>
             </div>

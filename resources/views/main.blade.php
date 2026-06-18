@@ -53,14 +53,69 @@
                         <input type="hidden" name="producto_id" value="{{ $producto->id }}">
                         
                         @if($producto->stock > 0)
-                            <button type="submit" class="btn btn-dark w-100 fw-bold py-2">
-                                COMPRAR <i class="bi bi-cart"></i>
-                            </button>
-                        @else
-                            <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
-                                SIN STOCK
-                            </button>
-                        @endif
+<button type="button"
+        class="btn btn-dark w-100 fw-bold py-2"
+        data-bs-toggle="modal"
+        data-bs-target="#modalOferta{{ $producto->id }}">
+    COMPRAR <i class="bi bi-cart"></i>
+</button>
+@else
+<button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
+    SIN STOCK
+</button>
+@endif
+
+<div class="modal fade" id="modalOferta{{ $producto->id }}" tabindex="-1">
+  <div class="modal-dialog">
+
+    <form action="{{ route('carrito.agregar') }}" method="POST">
+      @csrf
+
+      <input type="hidden" name="producto_id" value="{{ $producto->id }}">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Comprar {{ $producto->nombre }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <span class="badge bg-info text-dark mb-2">
+              Stock: {{ $producto->stock }}
+          </span>
+
+          <label class="form-label">Cantidad</label>
+
+          <input type="number"
+                 name="cantidad"
+                 class="form-control"
+                 min="1"
+                 max="{{ $producto->stock }}"
+                 value="1"
+                 required>
+
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-success">
+            Agregar al carrito
+          </button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
                     </form>
                 </div>
             </div>
@@ -94,7 +149,6 @@
                         <p class="text-muted small mb-1">Bolso Babolat Lite Negro</p>
                         <h5 class="fw-bold mb-1">$125,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $41,666 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -106,7 +160,6 @@
                         <p class="text-muted small mb-1">Short Babolat Aero</p>
                         <h5 class="fw-bold mb-1">$40,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $13,333 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -118,7 +171,6 @@
                         <p class="text-muted small mb-1">Remera Babolat</p>
                         <h5 class="fw-bold mb-1">$17,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $5,666 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -130,7 +182,6 @@
                         <p class="text-muted small mb-1">Paleta Babolat Stima Energy</p>
                         <h5 class="fw-bold mb-1">$420,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $140,000 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -159,7 +210,6 @@
                         <p class="text-muted small mb-1">Zapatillas Adidas Crazyquick Amarillo (Hombre)</p>
                         <h5 class="fw-bold mb-1">$180,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $60,000 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -171,7 +221,6 @@
                         <p class="text-muted small mb-1">Paleta Adidas RX Series Red</p>
                         <h5 class="fw-bold mb-1">$200,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $66,666 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -183,7 +232,6 @@
                         <p class="text-muted small mb-1">Bolso Adidas</p>
                         <h5 class="fw-bold mb-1">$150,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $50,000 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -195,7 +243,6 @@
                         <p class="text-muted small mb-1">Paleta Adids X-Treme Lima 2021</p>
                         <h5 class="fw-bold mb-1">$270,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $90,000 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -224,7 +271,6 @@
                         <p class="text-muted small mb-1">Bolso Bullpadel</p>
                         <h5 class="fw-bold mb-1">$210,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $70,000 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -236,7 +282,6 @@
                         <p class="text-muted small mb-1">Media Bullpadel</p>
                         <h5 class="fw-bold mb-1">$8,500</h5>
                         <p class="text-danger small mb-3">3 cuotas de $2,833 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -248,7 +293,6 @@
                         <p class="text-muted small mb-1">Pelotas Bullpadel</p>
                         <h5 class="fw-bold mb-1">$13,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $4,333 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -260,7 +304,6 @@
                         <p class="text-muted small mb-1">Remera Bullpadel</p>
                         <h5 class="fw-bold mb-1">$45,000</h5>
                         <p class="text-danger small mb-3">3 cuotas de $15,000 sin interes</p>
-                        <button class="btn btn-dark w-100 fw-bold py-2">COMPRAR <i class="bi bi-cart"></i></button>
                     </div>
                 </div>
             </div>
