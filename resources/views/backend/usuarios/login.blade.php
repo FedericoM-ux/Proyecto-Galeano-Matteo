@@ -52,21 +52,6 @@
                                 class="form-control"
                                 placeholder="••••••••"
                             >
-                            <a href="#" class="text-decoration-none small-link">
-                                ¿Olvidaste tu contraseña?
-                            </a>
-                        </div>
-
-                        <div class="mb-4 form-check">
-                            <input
-                                type="checkbox"
-                                class="form-check-input"
-                                id="recordar"
-                                name="remember"
-                            >
-                            <label class="form-check-label" for="recordar">
-                                Recuérdame
-                            </label>
                         </div>
 
                         <div class="d-grid">

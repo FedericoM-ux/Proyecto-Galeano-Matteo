@@ -50,10 +50,6 @@
             <h4 class="fw-bold mb-3">¿Listo para entrar a la cancha?</h4>
             <p class="mb-4">Nuestro objetivo es acompañarte dentro y fuera de la cancha, ofreciéndote todo lo necesario para disfrutar al máximo del pádel.</p>
             <div class="d-flex justify-content-center gap-3">
-                <a href="https://wa.me/tu-numero" class="btn btn-outline-success btn-lg px-4 d-inline-flex align-items-center gap-2">
-                    <i class="bi bi-whatsapp fs-4"></i> 
-                    Consultar por Whatsapp
-                </a>
             </div>
         </div>
     </div>

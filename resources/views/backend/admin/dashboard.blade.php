@@ -12,14 +12,44 @@
 @endif
 
 <div class="container-fluid p-0">
+
+    <button class="btn btn-dark d-md-none m-3"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#sidebarMobile">
+        ☰ Menú
+    </button>
+
+    <div class="offcanvas offcanvas-start d-md-none" id="sidebarMobile">
+
+        <div class="offcanvas-header">
+            <h5>Menú Admin</h5>
+            <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li><a class="nav-link" href="{{ route('admin.dashboard') }}">Usuarios</a></li>
+                <li><a class="nav-link" href="{{ route('admin.crearProd.index') }}">Productos</a></li>
+                <li><a class="nav-link" href="{{ route('admin.visVentas.index') }}">Ventas</a></li>
+                <li><a class="nav-link" href="{{ route('admin.visConsultas.index') }}">Consultas</a></li>
+            </ul>
+        </div>
+
+    </div>
+
     <div class="row g-0">
-        <div class="col-md-3 col-lg-2 sidebar-cool d-none d-md-block shadow">
+
+        <div class="col-md-2 d-none d-md-block sidebar-cool shadow min-vh-100">
+
             <div class="pt-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-speedometer2 me-2"></i> Usuarios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('admin.crearProd.index') }}"><i class="bi bi-bar-chart-line me-2"></i> Productos</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.dashboard') }}">Usuarios</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.crearProd.index') }}">Productos</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.visVentas.index') }}">Ventas</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.visConsultas.index') }}">Consultas</a></li>
                 </ul>
             </div>
+
         </div>
 
         <div class="col-md-9 col-lg-10 p-4 bg-light">
@@ -30,11 +60,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
-
+            
             <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
                 <div>
-                    <h3 class="fw-bold text-dark m-0">Dashboard</h3>
-                    <small class="text-secondary">Bienvenido al panel administrativo.</small>
+                    <h3 class="fw-bold text-dark m-0">Gestión de Usuarios</h3>
                 </div>
                 <div>
                     <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalCrearUsuario">
@@ -197,5 +226,4 @@
         </form>
     </div>
 </div>
-
 @endsection

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\VentaCabecera;
+use App\Models\VentaDetalle;
 
 class UsuarioController extends Controller
 {
@@ -47,14 +50,46 @@ class UsuarioController extends Controller
     {
         //
     }
-
+public function detalles()
+{
+    return $this->hasMany(VentaDetalle::class);
+}
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuario $usuario)
-    {
-        //
-    }
+    public function editCuenta()
+{
+    $usuario = Auth::user();
+    return view('backend.usuarios.modificarCuenta', compact('usuario'));
+}
+    
+public function updateCuenta(Request $request)
+{
+    $request->validate([
+        'nombre' => 'required|string|max:100',
+        'email' => 'required|email',
+    ]);
+
+    $usuario = Auth::user();
+
+    $usuario->update([
+        'nombre' => $request->nombre,
+        'email' => $request->email,
+    ]);
+
+    return back()->with('success', 'Cuenta actualizada correctamente');
+}
+
+public function compras()
+{
+    $usuario = Auth::user();
+
+    $compras = VentaCabecera::where('user_id', $usuario->id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+    return view('backend.usuarios.compras', compact('compras'));
+}
 
     /**
      * Update the specified resource in storage.
@@ -64,10 +99,9 @@ class UsuarioController extends Controller
         $usuario->update([
         'nombre' => $request->nombre,
         'email' => $request->email,
-        'rol_id' => $request->rol_id,
     ]);
 
-    return redirect()->route('admin.dashboard')
+    return redirect()->route('cuenta.edit')
         ->with('success', 'Usuario actualizado correctamente.');
     }
 

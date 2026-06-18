@@ -4,6 +4,12 @@
 
 <div class="container my-5">
 
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        <i class="bi bi-check-circle-fill me-2"></i> 
+        <strong>¡Éxito!</strong> El comprobante ha sido enviado a su correo.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
     <div class="card shadow p-4">
 
         <h3 class="text-center mb-4">Comprobante de Compra</h3>

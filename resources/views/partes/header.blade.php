@@ -45,31 +45,47 @@
                         @endguest
 
                         @auth
-                            <li>
-                                <span class="dropdown-item-text text-center fw-semibold">
-                                    {{ auth()->user()->nombre }}
-                                </span>
-                            </li>
+    <li>
+        <span class="dropdown-item-text text-center fw-semibold">
+            {{ auth()->user()->nombre }}
+        </span>
+    </li>
 
-                            @if(auth()->user()->rol->nombre == 'admin')
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
-                                        <i class="bi bi-speedometer2 me-2"></i> Panel de Admin
-                                    </a>
-                                </li>
-                            @endif
+    @if(auth()->user()->rol->nombre == 'admin')
+        <li>
+            <a class="dropdown-item d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
+                <i class="bi bi-speedometer2 me-2"></i> Panel de Admin
+            </a>
+        </li>
+    @endif
 
-                            <li><hr class="dropdown-divider"></li>
+    <!-- NUEVO: CONFIGURAR PERFIL -->
+    @if(auth()->user()->rol_id == 2)
+    <li>
+        <a class="dropdown-item d-flex align-items-center justify-content-center"
+           href="{{ route('cuenta.edit') }}">
+            <i class="bi bi-gear me-2"></i> Configurar perfil
+        </a>
+    </li>
+    <li>
+        <a class="dropdown-item d-flex align-items-center justify-content-center"
+           href="{{ route('cuenta.compras') }}">
+            <i class="bi bi-bag-check me-2"></i> Mis compras
+        </a>
+    </li>
+@endif
 
-                            <li>
-                                <form action="/logout" method="POST" class="text-center">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item text-center">
-                                        Cerrar sesión
-                                    </button>
-                                </form>
-                            </li>
-                        @endauth
+    <li><hr class="dropdown-divider"></li>
+
+    <li>
+        <form action="/logout" method="POST" class="text-center">
+            @csrf
+            <button type="submit" class="dropdown-item text-center">
+                Cerrar sesión
+            </button>
+        </form>
+    </li>
+@endauth
 
                     </ul>
                 </div>

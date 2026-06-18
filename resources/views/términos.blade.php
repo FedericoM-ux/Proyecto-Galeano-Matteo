@@ -6,7 +6,7 @@
         <hr class="mx-auto" style="width: 50px; height: 3px; background-color: #1a5928; opacity: 1;">
     </div>
     <div class="row justify-content-center">
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">1. Introducción</h5>
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">2. Requisitos de Idoneidad</h5>
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">3. El Servicio de La Dejada</h5>
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-         <div class="col-6 col-md-6 col-lg-3">
+         <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">4. Cancelaciones</h5>
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">5. Garantia de Productos</h5>
@@ -80,7 +80,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">6. Pautas del Usuario</h5>
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">7. Derecho de Propiedad Intelectual</h5>
@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">8. Limitacion de Responsabilidad</h5>
@@ -119,7 +119,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">9. Ley Aplicable y Jurisdiccion</h5>
@@ -132,7 +132,7 @@
             </div>
         </div>
 
-         <div class="col-6 col-md-6 col-lg-3">
+         <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body p-4">
                     <h5 class="fw-bold text-center border-bottom pb-2 mb-3">10. Contacto</h5>

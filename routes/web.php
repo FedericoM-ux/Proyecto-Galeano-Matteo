@@ -80,3 +80,13 @@ Route::resource('usuarios', UsuarioController::class);
 Route::resource('productos', ProductoController::class);
 
 Route::get('/comprobante/{id}', [CarritoController::class, 'comprobante'])->name('comprobante');
+
+Route::get('/admin/ventas', [AdminController::class, 'ventas'])
+    ->name('admin.visVentas.index');
+
+Route::get('/admin/consultas', [AdminController::class, 'consultas'])
+    ->name('admin.visConsultas.index');
+
+Route::get('/cuenta', [UsuarioController::class, 'editCuenta'])->name('cuenta.edit');
+Route::put('/cuenta', [UsuarioController::class, 'updateCuenta'])->name('cuenta.update');
+Route::get('/cuenta/compras', [UsuarioController::class, 'compras'])->name('cuenta.compras');

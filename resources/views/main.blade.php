@@ -87,7 +87,7 @@
 
         <div class="row g-4 g-lg-5 product-overlay-row justify-content-center">
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/bolso-babolat.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -99,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/short-babolat.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/remera-babolat-gris.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -123,7 +123,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/bolso-babolat.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -152,7 +152,7 @@
 
         <div class="row g-4 g-lg-5 product-overlay-row justify-content-center">
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/zapatilla-adidas.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
                     <div class="card-body">
@@ -164,7 +164,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/paleta-adidas.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
                     <div class="card-body">
@@ -176,7 +176,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/bolso-adidas.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
                     <div class="card-body">
@@ -188,7 +188,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/paleta-adidas-1.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
                     <div class="card-body">
@@ -217,7 +217,7 @@
 
         <div class="row g-4 g-lg-5 product-overlay-row justify-content-center">
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/bolso-bull.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -229,7 +229,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/media-bull.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -241,7 +241,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/remera-babolat-gris.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -253,7 +253,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 col-lg-3">
+            <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
                     <img src="{{ asset('images/remera-bull.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
                     <div class="card-body">
@@ -270,7 +270,7 @@
 
 <div class="container my-5">
     <div class="row g-3"> 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3">
                 <div class="d-flex align-items-center">
                     <div class="circulo">
@@ -284,7 +284,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3">
                 <div class="d-flex align-items-center">
                     <div class="circulo">
@@ -298,7 +298,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3">
                 <div class="d-flex align-items-center">
                     <div class="circulo">
@@ -312,7 +312,7 @@
             </div>
         </div>
 
-        <div class="col-6 col-md-6 col-lg-3">
+        <div class="col-12 col-md-6 col-lg-3">
             <div class="card h-100 border-0 shadow-sm p-3">
                 <div class="d-flex align-items-center">
                     <div class="circulo">
