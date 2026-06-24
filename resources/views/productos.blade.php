@@ -161,18 +161,22 @@
 </div>
                                 <input type="hidden" name="producto_id" value="{{ $producto->id }}">
                                 
-                                @if($producto->stock > 0)
-                                    <button type="button"
-        class="btn btn-dark w-100 fw-bold py-2"
-        data-bs-toggle="modal"
-        data-bs-target="#modalComprar{{ $producto->id }}">
-    COMPRAR <i class="bi bi-cart"></i>
-</button>
-                                @else
-                                    <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
-                                        SIN STOCK
-                                    </button>
-                                @endif
+                                @if(auth()->check() && !auth()->user()->esAdmin())
+
+    @if($producto->stock > 0)
+        <button type="button"
+                class="btn btn-dark w-100 fw-bold py-2"
+                data-bs-toggle="modal"
+                data-bs-target="#modalComprar{{ $producto->id }}">
+            COMPRAR <i class="bi bi-cart"></i>
+        </button>
+    @else
+        <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
+            SIN STOCK
+        </button>
+    @endif
+
+@endif
                             </form>
                         </div>
                     </div>

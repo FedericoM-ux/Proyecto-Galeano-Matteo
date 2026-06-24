@@ -35,46 +35,52 @@ class CarritoController extends Controller
     }
 
     public function agregar(Request $request)
-    {
-        $request->validate([
-            'producto_id' => 'required|exists:productos,id',
-            'cantidad' => 'required|integer|min:1'
-        ]);
+{
+    if (auth()->check() && auth()->user()->esAdmin()) {
+    return back()->with(
+        'error',
+        'Los administradores no pueden realizar compras.'
+    );
+}
+    $request->validate([
+        'producto_id' => 'required|exists:productos,id',
+        'cantidad' => 'required|integer|min:1'
+    ]);
 
-        $producto = Producto::findOrFail($request->producto_id);
+    $producto = Producto::findOrFail($request->producto_id);
 
-        if ($producto->stock < $request->cantidad) {
-            return back()->with('error', 'No hay suficiente stock disponible');
-        }
-
-        $carrito = $this->obtenerCarrito();
-
-        $item = $carrito->detalles()
-            ->where('producto_id', $producto->id)
-            ->first();
-
-        if ($item) {
-
-            $item->cantidad += $request->cantidad;
-            $item->subtotal = $item->cantidad * $item->precio_unitario;
-            $item->save();
-
-        } else {
-
-            $carrito->detalles()->create([
-                'producto_id' => $producto->id,
-                'cantidad' => $request->cantidad,
-                'precio_unitario' => $producto->precio,
-                'subtotal' => $producto->precio * $request->cantidad,
-            ]);
-        }
-
-        $this->recalcularTotal($carrito);
-
-        return redirect()
-            ->route('cliente.carrito')
-            ->with('success', 'Producto agregado al carrito');
+    if ($producto->stock < $request->cantidad) {
+        return back()->with('error', 'No hay suficiente stock disponible');
     }
+
+    $carrito = $this->obtenerCarrito();
+
+    $item = $carrito->detalles()
+        ->where('producto_id', $producto->id)
+        ->first();
+
+    if ($item) {
+
+        $item->cantidad += $request->cantidad;
+        $item->subtotal = $item->cantidad * $item->precio_unitario;
+        $item->save();
+
+    } else {
+
+        $carrito->detalles()->create([
+            'producto_id' => $producto->id,
+            'cantidad' => $request->cantidad,
+            'precio_unitario' => $producto->precio,
+            'subtotal' => $producto->precio * $request->cantidad,
+        ]);
+    }
+
+    $this->recalcularTotal($carrito);
+
+    return redirect()
+        ->route('cliente.carrito')
+        ->with('success', 'Producto agregado al carrito');
+}
 
     public function eliminar($id)
     {

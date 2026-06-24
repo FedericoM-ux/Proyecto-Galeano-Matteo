@@ -27,17 +27,18 @@
                         <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
                     </div>
                     
-                    @if($producto->stock > 0)
-<button type="button"
-        class="btn btn-dark w-100 fw-bold py-2"
-        data-bs-toggle="modal"
-        data-bs-target="#modalOferta{{ $producto->id }}">
-    COMPRAR <i class="bi bi-cart"></i>
-</button>
-@else
-<button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
-    SIN STOCK
-</button>
+                    @if(auth()->check() && !auth()->user()->esAdmin())
+
+    @if($producto->stock > 0)
+        <button class="btn btn-dark">
+            COMPRAR
+        </button>
+    @else
+        <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
+            SIN STOCK
+        </button>
+    @endif
+
 @endif
 
 <!-- MODAL -->
