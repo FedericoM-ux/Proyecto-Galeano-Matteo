@@ -10,33 +10,24 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductoController;
 
 
-// --- VISTAS DINÁMICAS DESDE EL PRODUCTOCONTROLLER ---
 Route::get('/', [ProductoController::class, 'main']);
 Route::get('/main', [ProductoController::class, 'main']);
 Route::get('/productos', [ProductoController::class, 'index']);
 Route::get('/ventaMayorista', [ProductoController::class, 'mayorista']);
 Route::get('/ofertas', [ProductoController::class, 'ofertas']);
-// ---------------------------------------------------
 
-// --- AUTENTICACIÓN ---
 Route::get('/registro', [AuthController::class, 'formularioRegistro'])->name('registro');
 Route::post('/registro', [AuthController::class, 'registrar'])->name('registro.guardar');
 Route::get('/login', [AuthController::class, 'formularioLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'autenticar'])->name('login.autenticar');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// --- PANEL ADMINISTRADOR ---
 Route::middleware(['auth', 'rol:admin'])->group(function() {
     Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-
-    // Mantenemos la vista del panel en AdminController
     Route::get('/admin/crearProd', [AdminController::class, 'productosIndex'])->name('admin.crearProd.index');
-    
-    // CAMBIO CLAVE: El guardado del producto nuevo ahora va directo al store de ProductoController
     Route::post('/admin/crearProd/guardar', [ProductoController::class, 'store'])->name('admin.crearProd.store');
 });
 
-// --- ÁREA CLIENTE Y CARRITO DE COMPRAS ---
 Route::middleware(['auth', 'rol:cliente'])->group(function () { 
     Route::get('/carrito', [CarritoController::class, 'index'])->name('cliente.carrito'); 
     Route::post('/carrito/agregar', [CarritoController::class, 'agregar'])->name('carrito.agregar'); 
@@ -51,7 +42,6 @@ Route::middleware(['auth', 'rol:cliente'])->group(function () {
     })->name('compra.confirmada'); 
 }); 
 
-// --- INFORMACIÓN GENERAL Y CONTACTO ---
 Route::get('/comercialización', function () {
     return view('comercialización');
 });
@@ -69,23 +59,19 @@ Route::get('/sobre-nosotros', function () {
     return view('sobre-nosotros');
 });
 
-// --- RUTAS DE PRUEBA / TEMPORALES ---
 Route::get('/admin-test', [AdminController::class, 'dashboard']);
 Route::get('/cliente', function () {
     return view('backend.usuarios.cliente');
 });
 
-// --- RECURSOS (RESOURCE) ---
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('productos', ProductoController::class);
 
 Route::get('/comprobante/{id}', [CarritoController::class, 'comprobante'])->name('comprobante');
 
-Route::get('/admin/ventas', [AdminController::class, 'ventas'])
-    ->name('admin.visVentas.index');
+Route::get('/admin/ventas', [AdminController::class, 'ventas'])->name('admin.visVentas.index');
 
-Route::get('/admin/consultas', [AdminController::class, 'consultas'])
-    ->name('admin.visConsultas.index');
+Route::get('/admin/consultas', [AdminController::class, 'consultas'])->name('admin.visConsultas.index');
 
 Route::get('/cuenta', [UsuarioController::class, 'editCuenta'])->name('cuenta.edit');
 Route::put('/cuenta', [UsuarioController::class, 'updateCuenta'])->name('cuenta.update');

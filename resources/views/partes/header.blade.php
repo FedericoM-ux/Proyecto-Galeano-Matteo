@@ -59,7 +59,6 @@
         </li>
     @endif
 
-    <!-- NUEVO: CONFIGURAR PERFIL -->
     @if(auth()->user()->rol_id == 2)
     <li>
         <a class="dropdown-item d-flex align-items-center justify-content-center"
@@ -90,10 +89,14 @@
                     </ul>
                 </div>
 
-                <a href="/carrito" class="position-relative">
-                    <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $cartCount }}</span>
-                </a>
+                @auth
+                    @if(auth()->user()->rol->nombre != 'admin')
+                        <a href="/carrito" class="position-relative">
+                        <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $cartCount }}</span>
+                        </a>
+                    @endif
+                @endauth
             </div>
 
         </div>

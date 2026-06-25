@@ -2,30 +2,24 @@
 @section('contenido')
 <div class="container my-5">
     <div class="row g-4">
-        
-        <!-- RENDERIZADO DINÁMICO DE PRODUCTOS ASIGNADOS A 'OFERTAS' -->
-        @forelse($productos as $producto)
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 border-0 shadow-sm text-center d-flex flex-column">
-                
-                <!-- Imagen Dinámica de la Base de Datos -->
-                <img src="{{ $producto->url_imagen ? asset($producto->url_imagen) : asset('images/paleta-hombre.jpeg') }}" 
-                     class="card-img-top p-3" 
-                     alt="{{ $producto->nombre }}">
-                
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <!-- Nombre dinámico -->
-                        <p class="text-muted small mb-1">{{ $producto->nombre }}</p>
+                @forelse($productos as $producto)
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm text-center d-flex flex-column producto-card">
                         
-                        <!-- Precio Tachado de Referencia (Simula el precio viejo sin oferta) -->
-                        <p class="text-muted mb-0">
-                            <del>${{ number_format($producto->precio * 1.15, 0, ',', '.') }}</del>
-                        </p>
+                        <img src="{{ $producto->url_imagen ? asset($producto->url_imagen) : asset('images/imagenNoDisp.PNG') }}" 
+                             class="card-img-top p-3 producto-img"
+                             alt="{{ $producto->nombre }}">
                         
-                        <!-- Precio dinámico con la Oferta Real -->
-                        <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
-                    </div>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <p class="text-muted small mb-1">{{ $producto->nombre }}</p>
+                                <p class="text-muted mb-0">
+                                <del>${{ number_format($producto->precio * 1.15, 0, ',', '.') }}</del></p>
+                                <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
+                                <p class="text-danger small mb-3">3 cuotas de ${{ number_format($producto->precio / 3, 0, ',', '.') }} sin interés</p>
+                                <span class="badge bg-secondary text-dark mb-2 w-100">Stock: {{ $producto->stock }}</span>
+                                
+                              </div>
                     
                     @if(auth()->check() && !auth()->user()->esAdmin())
 

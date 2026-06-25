@@ -7,20 +7,17 @@ use App\Models\Producto;
 
 class ProductoController extends Controller
 {
-    // 1. Página de Inicio (Muestra solo los asignados a 'inicio')
+
     public function main()
     {
         $productos = Producto::whereJsonContains('secciones', 'inicio')->get(); 
         return view('main', compact('productos'));
     }
 
-    // 2. Catálogo General CON FILTROS DINÁMICOS Y BUSCADOR POR TEXTO
     public function index(Request $request)
     {
-        // Empezamos la consulta filtrando por la sección 'productos'
         $query = Producto::whereJsonContains('secciones', 'productos');
 
-        // NUEVO: Buscador por Texto (Nombre o Descripción)
         $query->when($request->filled('buscar'), function ($q) use ($request) {
             $termino = '%' . $request->buscar . '%';
             return $q->where(function ($subQuery) use ($termino) {
@@ -29,53 +26,43 @@ class ProductoController extends Controller
             });
         });
 
-        // Filtro por Género (solo si se seleccionó uno)
         $query->when($request->filled('genero'), function ($q) use ($request) {
             return $q->where('genero', $request->genero);
         });
 
-        // Filtro por Marca
         $query->when($request->filled('marca'), function ($q) use ($request) {
             return $q->where('marca', $request->marca);
         });
 
-        // Filtro por Talle
         $query->when($request->filled('talle'), function ($q) use ($request) {
             return $q->where('talle', $request->talle);
         });
 
-        // Filtro por Rango de Precio Mínimo
         $query->when($request->filled('precio_min'), function ($q) use ($request) {
             return $q->where('precio', '>=', $request->precio_min);
         });
 
-        // Filtro por Rango de Precio Máximo
         $query->when($request->filled('precio_max'), function ($q) use ($request) {
             return $q->where('precio', '<=', $request->precio_max);
         });
 
-        // Ejecutamos la consulta filtrada
         $productos = $query->get();
 
-        // Retornamos manteniendo los filtros en la URL para la vista
         return view('productos', compact('productos'))->with($request->all());
     }
 
-    // 3. Página de Ofertas (Muestra solo los asignados a 'ofertas')
     public function ofertas()
     {
         $productos = Producto::whereJsonContains('secciones', 'ofertas')->get();
         return view('ofertas', compact('productos'));
     }
 
-    // 4. Venta Mayorista (Muestra solo los asignados a 'mayorista')
     public function mayorista()
     {
         $productos = Producto::whereJsonContains('secciones', 'mayorista')->get();
         return view('ventaMayorista', compact('productos'));
     }
 
-    // Método para guardar un producto NUEVO incluyendo los filtros
     public function store(Request $request)
     {
         $request->validate([

@@ -1,31 +1,23 @@
 @extends('plantilla')
 @section('contenido')
 <div class="container my-5">
-    <div class="row g-4">
-        
-        <!-- RENDERIZADO DINÁMICO DE PRODUCTOS ASIGNADOS A 'MAYORISTA' -->
-        @forelse($productos as $producto)
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 border-0 shadow-sm text-center d-flex flex-column">
-                
-                <!-- Imagen Dinámica de la Base de Datos -->
-                <img src="{{ $producto->url_imagen ? asset($producto->url_imagen) : asset('images/caja-bull.jpeg') }}" 
-                     class="card-img-top p-3" 
-                     alt="{{ $producto->nombre }}">
-                
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <!-- Nombre dinámico -->
-                        <p class="text-muted small mb-1">{{ $producto->nombre }}</p>
+     <div class="row g-4">
+                @forelse($productos as $producto)
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm text-center d-flex flex-column producto-card">
                         
-                        <!-- Precio dinámico (Venta por Mayor) -->
-                        <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
+                        <img src="{{ $producto->url_imagen ? asset($producto->url_imagen) : asset('images/imagenNoDisp.PNG') }}" 
+                             class="card-img-top p-3 producto-img"
+                             alt="{{ $producto->nombre }}">
                         
-                        <!-- Leyenda opcional para mercadería mayorista -->
-                        <p class="text-secondary small mb-3">Precio exclusivo por bulto cerrado</p>
-                    </div>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <p class="text-muted small mb-1">{{ $producto->nombre }}</p>
+                                <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
+                                <p class="text-danger small mb-3">3 cuotas de ${{ number_format($producto->precio / 3, 0, ',', '.') }} sin interés</p>
+                                <span class="badge bg-secondary text-dark mb-2 w-100">Stock: {{ $producto->stock }}</span>
+                            </div>
                     
-                    <!-- Formulario de Carrito Funcional para Venta Mayorista -->
                     <form action="{{ route('carrito.agregar') }}" method="POST" class="w-100 mt-auto">
                         @csrf
                         <input type="hidden" name="producto_id" value="{{ $producto->id }}">
@@ -46,8 +38,6 @@
     @endif
 
 @endif
-
-<!-- MODAL -->
 <div class="modal fade" id="modalOferta{{ $producto->id }}" tabindex="-1">
   <div class="modal-dialog">
 

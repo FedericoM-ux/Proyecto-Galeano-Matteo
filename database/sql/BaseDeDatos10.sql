@@ -118,18 +118,29 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `url_imagen`, `secciones`, `genero`, `marca`, `talle`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'Caja Bullpadel', 'Conjunto de Pelotas de la marca Bullpadel', 1000.00, 3, 'images/productos/1781748783_Bolso-bull.PNG', '["productos","mayorista"]', 'unisex', 'bullpadel', NULL, '2026-06-18 05:13:03', '2026-06-18 05:22:10', NULL),
-	(2, 'Caja Penn', 'Conjunto de pelotas de la marca Penn', 1000.00, 3, 'images/productos/1781748826_caja-penn.PNG', '["productos","mayorista"]', 'unisex', NULL, NULL, '2026-06-18 05:13:46', '2026-06-18 05:22:10', NULL),
-	(3, 'Remera Bullpadel', 'Prenda de vestir para hombres.', 3500.00, 7, 'images/productos/1781749411_remera-bull.PNG', '["inicio","productos"]', 'hombre', 'bullpadel', NULL, '2026-06-18 05:23:31', '2026-06-18 05:23:31', NULL),
-	(4, 'Remera', 'Prenda de vestir para hombres.', 3000.00, 3, 'images/productos/1781749457_remera-head.PNG', '["inicio","productos","ofertas"]', 'hombre', NULL, 'm', '2026-06-18 05:24:17', '2026-06-18 05:24:17', NULL),
-	(5, 'Remera Babolat Gris', 'Remera de la marca Babolat', 17000.00, 3, 'images/productos/1781750131_remera-babolat-gris.PNG', '["productos","ofertas"]', 'hombre', 'babolat', 'm', '2026-06-18 05:35:31', '2026-06-18 05:37:41', NULL),
-	(6, 'Pelotas Rosas', 'Pelotas de tonalidad rosa.', 1200.00, 8, 'images/productos/1781750176_Bolas.PNG', '["inicio","productos"]', 'unisex', NULL, NULL, '2026-06-18 05:36:16', '2026-06-18 05:36:16', NULL),
-	(7, 'Paleta Adids X-Treme Lima 2021', 'Paleta del año 2021', 270000.00, 2, 'images/productos/1781750219_Paleta Adids X-Treme Lima 2021.PNG', '["productos"]', NULL, NULL, NULL, '2026-06-18 05:36:59', '2026-06-18 05:37:32', NULL),
-	(8, 'Paleta Adidas RX Series Red', 'Paleta edicion Series Red.', 200000.00, 2, 'images/productos/1781750352_Paleta Adids X-Treme Lima 2021.PNG', '["productos","ofertas"]', NULL, 'adidas', NULL, '2026-06-18 05:39:12', '2026-06-18 05:39:12', NULL),
-	(9, 'Bolso Babolat Lite Negro', 'Bolso edición Lite Negro', 125000.00, 2, 'images/productos/1781750406_Bolso-babolat.PNG', '["productos","ofertas"]', NULL, 'babolat', NULL, '2026-06-18 05:40:06', '2026-06-18 05:40:06', NULL);
+	(1, 'Caja de Pelotas Bullpadel', 'Conjunto de Pelotas de la marca Bullpadel.', 250000.00, 3, 'images/productos/1781748783_Bolso-bull.PNG', '["productos","mayorista"]', 'unisex', 'bullpadel', NULL, '2026-06-18 05:13:03', '2026-06-25 21:34:54', NULL),
+	(2, 'Caja de Pelotas Penn', 'Conjunto de pelotas de la marca Penn.', 150000.00, 3, 'images/productos/1781748826_caja-penn.PNG', '["productos","mayorista"]', 'unisex', NULL, NULL, '2026-06-18 05:13:46', '2026-06-25 21:35:00', NULL),
+	(3, 'Remera Bullpadel', 'Prenda de vestir para hombres.', 45000.00, 7, 'images/productos/1781749411_remera-bull.PNG', '["inicio","productos"]', 'hombre', 'bullpadel', 'm', '2026-06-18 05:23:31', '2026-06-25 21:21:36', NULL),
+	(4, 'Remera', 'Prenda de vestir para hombres.', 13000.00, 3, 'images/productos/1781749457_remera-head.PNG', '["inicio","productos","ofertas"]', 'hombre', NULL, 'm', '2026-06-18 05:24:17', '2026-06-25 21:23:06', NULL),
+	(5, 'Remera Babolat Gris', 'Remera de la marca Babolat.', 17000.00, 3, 'images/productos/1781750131_remera-babolat-gris.PNG', '["productos","ofertas"]', 'hombre', 'babolat', 'm', '2026-06-18 05:35:31', '2026-06-25 21:19:31', NULL),
+	(6, 'Pelotas Rosas', 'Pelotas de tonalidad rosa.', 16000.00, 8, 'images/productos/1781750176_Bolas.PNG', '["inicio","productos"]', 'unisex', NULL, NULL, '2026-06-18 05:36:16', '2026-06-25 21:29:46', NULL),
+	(7, 'Paleta Adids X-Treme Lima 2021', 'Paleta del año 2021.', 270000.00, 2, 'images/productos/1781750219_Paleta Adids X-Treme Lima 2021.PNG', '["productos"]', NULL, NULL, NULL, '2026-06-18 05:36:59', '2026-06-25 21:19:03', NULL),
+	(8, 'Paleta Adidas RX Series Red', 'Paleta edicion Series Red.', 200000.00, 2, 'images/productos/1782406939_red.PNG', '["productos","ofertas"]', NULL, 'adidas', NULL, '2026-06-18 05:39:12', '2026-06-25 20:02:19', NULL),
+	(9, 'Bolso Babolat Lite Negro', 'Bolso edición Lite Negro.', 125000.00, 2, 'images/productos/1781750406_Bolso-babolat.PNG', '["productos","ofertas"]', NULL, 'babolat', NULL, '2026-06-18 05:40:06', '2026-06-25 21:19:25', NULL),
+	(10, 'Paleta Babolat Stima Energy', 'Paleta de la marca Babolat, diseño Stima Energy.', 420000.00, 2, 'images/productos/1782410948_paleta babolat.PNG', '["productos"]', 'unisex', 'babolat', NULL, '2026-06-25 21:09:08', '2026-06-25 21:09:08', NULL),
+	(11, 'Bolso Adidas', 'Bolso de la marca Adidas.', 150000.00, 10, 'images/productos/1782411480_bolso-adidas.PNG', '["productos"]', 'unisex', 'adidas', NULL, '2026-06-25 21:18:00', '2026-06-25 21:19:15', NULL),
+	(12, 'Zapatillas Adidas Crazyquick Amarillo', 'Zapatillas de la marca Adidas edición Crazyquick Amarillo.', 180000.00, 3, 'images/productos/1782411534_zapatilla-adidas.PNG', '["productos"]', 'hombre', 'adidas', 'm', '2026-06-25 21:18:54', '2026-06-25 21:18:54', NULL),
+	(13, 'Short Babolat Aero', 'Short de la marca Babolat estilo Aero.', 40000.00, 9, 'images/productos/1782411652_short-babolat.PNG', '["productos"]', 'hombre', 'babolat', 'm', '2026-06-25 21:20:52', '2026-06-25 21:20:52', NULL),
+	(14, 'Media Bullpadel', 'Medias de la marca Bullpadel.', 8500.00, 3, 'images/productos/1782411751_media-bull.PNG', '["productos"]', 'mujer', 'bullpadel', 's', '2026-06-25 21:22:31', '2026-06-25 21:22:31', NULL),
+	(15, 'Grip Blanco', 'Grip de tonalidad blanca.', 4500.00, 12, 'images/productos/1782412249_grip-blanco.PNG', '["productos","ofertas"]', 'unisex', NULL, NULL, '2026-06-25 21:30:49', '2026-06-25 21:31:40', NULL),
+	(16, 'Grip Negro', 'Grip de tonalidad negra.', 5000.00, 5, 'images/productos/1782412286_grip-negro.PNG', '["productos","ofertas"]', 'unisex', NULL, NULL, '2026-06-25 21:31:26', '2026-06-25 21:31:26', NULL),
+	(17, 'Grip Winar', 'Grip de la marca Winar.', 5500.00, 9, 'images/productos/1782412334_grip-winar.PNG', '["productos","ofertas"]', 'unisex', NULL, NULL, '2026-06-25 21:32:14', '2026-06-25 21:32:14', NULL),
+	(18, 'Grip Relieve', 'Grip de la marca Relieve.', 4000.00, 6, 'images/productos/1782412358_grip-relieve.PNG', '["productos"]', 'unisex', NULL, NULL, '2026-06-25 21:32:38', '2026-06-25 21:32:38', NULL),
+	(19, 'Bolso Bullpadel', 'Bolso de la marca Bullpadel.', 210000.00, 7, 'images/productos/1782412424_bolso-bull.PNG', '["productos"]', 'mujer', 'bullpadel', NULL, '2026-06-25 21:33:44', '2026-06-25 21:33:44', NULL),
+	(20, 'Caja de Pelotas Xtrust', 'Conjunto de Pelotas de la marca Xtrust.', 210000.00, 11, 'images/productos/1782412481_caja-xtrust.PNG', '["productos","mayorista"]', 'unisex', NULL, NULL, '2026-06-25 21:34:41', '2026-06-25 21:34:41', NULL);
 
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -159,9 +170,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-	('9pRRd5wLv9mBe9bNVInjPB7CZyjfsDsjHfhxXn0x', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJwS3BiMmJqQkpMRTBlbEFKVUtSenFaOTJsOUxESEd4U3hWZEJ0T1RPIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC9tYWluIiwicm91dGUiOm51bGx9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX0sInVybCI6eyJpbnRlbmRlZCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC9wcm9kdWN0b3MifX0=', 1782321875),
-	('gbGJIKbNJPkdjBxH0Kd8u4mFgX6o4COV1WSreQlO', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.28.0 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36', 'eyJfdG9rZW4iOiJqeXJYeU9oOHlvZW1jV3ZzTWVUeXMweEFCNkJtRUZiZ0NKaEt3dGRMIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC8/aGVyZD1wcmV2aWV3Iiwicm91dGUiOm51bGx9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX19', 1782313927),
-	('phuta8vpFlTZDkagXSJcH7wLlNx98oKVu5BvCWvE', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJLSXpSeDRZQkRUZWhocjd1NUVidEZ2aDNtV0xMYXF4QmFKWVRuZGNRIiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvZ2FsZWFuby1tYXR0ZW8tZ2l0LnRlc3RcL3Byb2R1Y3RvcyIsInJvdXRlIjoicHJvZHVjdG9zLmluZGV4In0sImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjozfQ==', 1781751063);
+	('WNdmH5SN88tDsT3MnmFxMp0sGHGd9garEDbDfHUK', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJXQ3U1M1lyb000YUNJdmxxUFhhUkoxeTNpWEk0dXZ0YWRPQmNHeXdzIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC9hZG1pblwvdmVudGFzIiwicm91dGUiOiJhZG1pbi52aXNWZW50YXMuaW5kZXgifSwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI6M30=', 1782412527);
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,

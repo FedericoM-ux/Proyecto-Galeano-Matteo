@@ -30,23 +30,22 @@
         </div>
     </div>
 
-    <div class="row g-4">
-        @forelse($productos as $producto)
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 border-0 shadow-sm text-center d-flex flex-column">
-                
-                <img src="{{ $producto->url_imagen ? asset($producto->url_imagen) : asset('images/paleta-hombre.jpeg') }}" 
-                     class="card-img-top p-3" 
-                     alt="{{ $producto->nombre }}">
-                
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <p class="text-muted small mb-1">{{ $producto->nombre }}</p>
+     <div class="row g-4">
+                @forelse($productos as $producto)
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm text-center d-flex flex-column producto-card">
                         
-                        <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
+                        <img src="{{ $producto->url_imagen ? asset($producto->url_imagen) : asset('images/imagenNoDisp.PNG') }}" 
+                             class="card-img-top p-3 producto-img"
+                             alt="{{ $producto->nombre }}">
                         
-                        <p class="text-danger small mb-3">3 cuotas de ${{ number_format($producto->precio / 3, 0, ',', '.') }} sin interés</p>
-                    </div>
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <p class="text-muted small mb-1">{{ $producto->nombre }}</p>
+                                <h5 class="fw-bold mb-1">${{ number_format($producto->precio, 0, ',', '.') }}</h5>
+                                <p class="text-danger small mb-3">3 cuotas de ${{ number_format($producto->precio / 3, 0, ',', '.') }} sin interés</p>
+                                <span class="badge bg-secondary text-dark mb-2 w-100">Stock: {{ $producto->stock }}</span>
+                            </div>
                     
                     <form action="{{ route('carrito.agregar') }}" method="POST" class="w-100 mt-auto">
                         @csrf
@@ -148,7 +147,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/bolso-babolat.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/bolso-babolat.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Bolso Babolat Lite Negro</p>
                         <h5 class="fw-bold mb-1">$125,000</h5>
@@ -159,7 +158,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/short-babolat.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/short-babolat.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Short Babolat Aero</p>
                         <h5 class="fw-bold mb-1">$40,000</h5>
@@ -170,7 +169,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/remera-babolat-gris.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/remera-babolat-gris.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Remera Babolat</p>
                         <h5 class="fw-bold mb-1">$17,000</h5>
@@ -181,7 +180,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/bolso-babolat.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/paleta-babolat.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Paleta Babolat Stima Energy</p>
                         <h5 class="fw-bold mb-1">$420,000</h5>
@@ -209,7 +208,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/zapatilla-adidas.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
+                    <img src="{{ asset('images/zapatilla-adidas.jpeg') }}" class="card-img-top">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Zapatillas Adidas Crazyquick Amarillo (Hombre)</p>
                         <h5 class="fw-bold mb-1">$180,000</h5>
@@ -220,7 +219,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/paleta-adidas.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
+                    <img src="{{ asset('images/paleta-adidas.jpeg') }}" class="card-img-top">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Paleta Adidas RX Series Red</p>
                         <h5 class="fw-bold mb-1">$200,000</h5>
@@ -231,7 +230,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/bolso-adidas.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
+                    <img src="{{ asset('images/bolso-adidas.jpeg') }}" class="card-img-top">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Bolso Adidas</p>
                         <h5 class="fw-bold mb-1">$150,000</h5>
@@ -242,7 +241,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/paleta-adidas-1.jpeg') }}" class="card-img-top" alt="Paleta Babolat">
+                    <img src="{{ asset('images/paleta-adidas-1.jpeg') }}" class="card-img-top">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Paleta Adids X-Treme Lima 2021</p>
                         <h5 class="fw-bold mb-1">$270,000</h5>
@@ -270,7 +269,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/bolso-bull.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/bolso-bull.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Bolso Bullpadel</p>
                         <h5 class="fw-bold mb-1">$210,000</h5>
@@ -281,7 +280,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/media-bull.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/media-bull.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Media Bullpadel</p>
                         <h5 class="fw-bold mb-1">$8,500</h5>
@@ -292,7 +291,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/remera-babolat-gris.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/pelotas-bull.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Pelotas Bullpadel</p>
                         <h5 class="fw-bold mb-1">$13,000</h5>
@@ -303,7 +302,7 @@
 
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100 border-0 shadow text-center">
-                    <img src="{{ asset('images/remera-bull.jpeg') }}" class="card-img-top p-3" alt="Paleta Babolat">
+                    <img src="{{ asset('images/remera-bull.jpeg') }}" class="card-img-top p-3">
                     <div class="card-body">
                         <p class="text-muted small mb-1">Remera Bullpadel</p>
                         <h5 class="fw-bold mb-1">$45,000</h5>

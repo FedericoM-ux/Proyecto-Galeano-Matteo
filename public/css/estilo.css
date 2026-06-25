@@ -165,4 +165,45 @@
     transform: translateY(-5px);
 }
 
+.producto-img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
 
+.producto-card{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-img-container {
+    height: 220px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f8f8f8;
+    border-radius: 8px 8px 0 0;
+}
+
+.producto-img {
+    max-height: 300px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.producto-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
