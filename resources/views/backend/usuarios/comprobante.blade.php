@@ -58,7 +58,7 @@
             Volver a Ventas
         </a>
     @else
-        <a href="/productos" class="btn btn-primary">
+        <a href="/main" class="btn btn-primary">
             Seguir Comprando
         </a>
     @endif

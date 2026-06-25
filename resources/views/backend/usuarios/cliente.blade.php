@@ -10,7 +10,7 @@
             Bienvenido, {{ auth()->user()->nombre }}
         </div>
 
-        <a href="/carrito" class="btn btn-success">
+        <a href="/main" class="btn btn-success">
             Ir a la Tienda
         </a>
     </div>
