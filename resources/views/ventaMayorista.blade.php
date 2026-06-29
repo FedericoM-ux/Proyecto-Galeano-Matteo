@@ -1,6 +1,20 @@
 @extends('plantilla')
 @section('contenido')
+
 <div class="container my-5">
+    @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
      <div class="row g-4">
                 @forelse($productos as $producto)
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -21,20 +35,21 @@
                     <form action="{{ route('carrito.agregar') }}" method="POST" class="w-100 mt-auto">
                         @csrf
                         <input type="hidden" name="producto_id" value="{{ $producto->id }}">
-                        
-                        @if(auth()->check() && !auth()->user()->esAdmin())
+                      
+
+    @if(!auth()->check() || !auth()->user()->esAdmin())
 
     @if($producto->stock > 0)
-    <button type="button"
-            class="btn btn-dark w-100 fw-bold py-2"
-            data-bs-toggle="modal"
-            data-bs-target="#modalOferta{{ $producto->id }}">
-        COMPRAR <i class="bi bi-cart"></i>
-    </button>
+        <button type="button"
+                class="btn btn-dark w-100 fw-bold py-2"
+                data-bs-toggle="modal"
+                data-bs-target="#modalOferta{{ $producto->id }}">
+            COMPRAR <i class="bi bi-cart"></i>
+        </button>
     @else
-    <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
-        SIN STOCK
-    </button>
+        <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
+            SIN STOCK
+        </button>
     @endif
 
 @endif

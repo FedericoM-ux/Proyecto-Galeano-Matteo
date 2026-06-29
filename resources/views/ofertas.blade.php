@@ -2,6 +2,19 @@
 @section('contenido')
 
 <div class="container my-5">
+    @if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
     <div class="row g-4">
 
         @forelse($productos as $producto)
@@ -35,23 +48,22 @@
                         </span>
                     </div>
 
-                    {{-- BOTÓN COMPRA --}}
-                    @if(auth()->check() && !auth()->user()->esAdmin())
+                   @if(!auth()->check() || !auth()->user()->esAdmin())
 
-                        @if($producto->stock > 0)
-                            <button type="button"
-                                    class="btn btn-dark w-100 fw-bold py-2"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalOferta{{ $producto->id }}">
-                                COMPRAR
-                            </button>
-                        @else
-                            <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
-                                SIN STOCK
-                            </button>
-                        @endif
+    @if($producto->stock > 0)
+        <button type="button"
+                class="btn btn-dark w-100 fw-bold py-2"
+                data-bs-toggle="modal"
+                data-bs-target="#modalOferta{{ $producto->id }}">
+            COMPRAR <i class="bi bi-cart"></i>
+        </button>
+    @else
+        <button type="button" class="btn btn-secondary w-100 fw-bold py-2" disabled>
+            SIN STOCK
+        </button>
+    @endif
 
-                    @endif
+@endif
 
                 </div>
             </div>

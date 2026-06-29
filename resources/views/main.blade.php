@@ -1,5 +1,19 @@
 @extends('plantilla')
 @section('contenido')
+
+@if(session('success'))
+                <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
 <div id="carouselPadel" class="carousel slide" data-bs-ride="carousel">
 
     <div class="carousel-inner">
@@ -51,7 +65,7 @@
                         @csrf
                         <input type="hidden" name="producto_id" value="{{ $producto->id }}">
                         
-                        @if(auth()->check() && !auth()->user()->esAdmin())
+                        @if(!auth()->check() || !auth()->user()->esAdmin())
 
     @if($producto->stock > 0)
         <button type="button"

@@ -48,7 +48,7 @@
             Volver a Ventas
         </a>
     @else
-        <a href="/main" class="btn btn-primary">Seguir Comprando</a>
+        <a href="/main" class="btn btn-primary">Volver a la página principal</a>
         <a href="{{ route('ventas.pdf', $venta->id) }}" class="btn btn-danger" target="_blank">Ver PDF</a>
     @endif
     </div>

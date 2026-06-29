@@ -1,12 +1,6 @@
 @extends('plantilla')
 @section('contenido')
 
-@if(session('error'))
-    <div class="alert alert-danger">
-        {{ session('error') }}
-    </div>
-@endif
-
 <div class="container-fluid my-5">
     <div class="row px-3">
         
@@ -92,6 +86,13 @@
                 </div>
             @endif
 
+            @if(session('error'))
+                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
             <div class="row g-4">
                 @forelse($productos as $producto)
                 <div class="col-12 col-sm-6 col-lg-4">
@@ -170,7 +171,7 @@
 
 <input type="hidden" name="producto_id" value="{{ $producto->id }}">
                                 
-    @if(auth()->check() && !auth()->user()->esAdmin())
+    @if(!auth()->check() || !auth()->user()->esAdmin())
 
     @if($producto->stock > 0)
         <button type="button"

@@ -34,12 +34,7 @@ Route::middleware(['auth', 'rol:cliente'])->group(function () {
     Route::delete('/carrito/eliminar/{id}', [CarritoController::class, 'eliminar'])->name('carrito.eliminar'); 
     Route::post('/carrito/confirmar', [CarritoController::class, 'confirmar'])->name('carrito.confirmar'); 
 
-    Route::get('/compra-confirmada', function () { 
-        if (!session('total')) { 
-            return redirect()->route('cliente.dashboard'); 
-        } 
-        return view('backend.usuarios.compra-confirmada'); 
-    })->name('compra.confirmada'); 
+    Route::get('/compra-confirmada', [CarritoController::class, 'compraConfirmada'])->name('compra.confirmada');
 }); 
 
 Route::get('/comercialización', function () {

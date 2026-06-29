@@ -89,14 +89,12 @@
                     </ul>
                 </div>
 
-                @auth
-                    @if(auth()->user()->rol->nombre != 'admin')
+                    @if(!auth()->check() || auth()->user()->rol->nombre != 'admin')
                         <a href="/carrito" class="position-relative">
                         <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $cartCount }}</span>
                         </a>
                     @endif
-                @endauth
             </div>
 
         </div>
