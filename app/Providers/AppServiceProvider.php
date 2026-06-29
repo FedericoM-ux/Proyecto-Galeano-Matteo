@@ -5,11 +5,14 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\Models\VentaCabecera;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function boot()
-    {
+    {   
+        Carbon::setLocale('es');
+        
         View::composer('*', function ($view) {
 
             if (auth()->check()) {
@@ -26,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
             } else {
                 $view->with('cartCount', 0);
             }
-
+        
         });
     }
 }

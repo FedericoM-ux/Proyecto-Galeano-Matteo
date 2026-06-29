@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE DATABASE IF NOT EXISTS `ecommerce_grupo10` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_uca1400_ai_ci */;
+CREATE DATABASE IF NOT EXISTS `ecommerce_grupo10` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 USE `ecommerce_grupo10`;
 
 CREATE TABLE IF NOT EXISTS `cache` (
@@ -121,10 +121,10 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `url_imagen`, `secciones`, `genero`, `marca`, `talle`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'Caja de Pelotas Bullpadel', 'Conjunto de Pelotas de la marca Bullpadel.', 250000.00, 3, 'images/productos/1781748783_Bolso-bull.PNG', '["productos","mayorista"]', 'unisex', 'bullpadel', NULL, '2026-06-18 05:13:03', '2026-06-25 21:34:54', NULL),
+	(1, 'Caja de Pelotas Bullpadel', 'Conjunto de Pelotas de la marca Bullpadel.', 250000.00, 2, 'images/productos/1781748783_Bolso-bull.PNG', '["productos","mayorista"]', 'unisex', 'bullpadel', NULL, '2026-06-18 05:13:03', '2026-06-29 03:38:41', NULL),
 	(2, 'Caja de Pelotas Penn', 'Conjunto de pelotas de la marca Penn.', 150000.00, 3, 'images/productos/1781748826_caja-penn.PNG', '["productos","mayorista"]', 'unisex', NULL, NULL, '2026-06-18 05:13:46', '2026-06-25 21:35:00', NULL),
 	(3, 'Remera Bullpadel', 'Prenda de vestir para hombres.', 45000.00, 7, 'images/productos/1781749411_remera-bull.PNG', '["inicio","productos"]', 'hombre', 'bullpadel', 'm', '2026-06-18 05:23:31', '2026-06-25 21:21:36', NULL),
-	(4, 'Remera', 'Prenda de vestir para hombres.', 13000.00, 3, 'images/productos/1781749457_remera-head.PNG', '["inicio","productos","ofertas"]', 'hombre', NULL, 'm', '2026-06-18 05:24:17', '2026-06-25 21:23:06', NULL),
+	(4, 'Remera', 'Prenda de vestir para hombres.', 13000.00, 0, 'images/productos/1781749457_remera-head.PNG', '["inicio","productos","ofertas"]', 'hombre', NULL, 'm', '2026-06-18 05:24:17', '2026-06-25 22:05:10', NULL),
 	(5, 'Remera Babolat Gris', 'Remera de la marca Babolat.', 17000.00, 3, 'images/productos/1781750131_remera-babolat-gris.PNG', '["productos","ofertas"]', 'hombre', 'babolat', 'm', '2026-06-18 05:35:31', '2026-06-25 21:19:31', NULL),
 	(6, 'Pelotas Rosas', 'Pelotas de tonalidad rosa.', 16000.00, 8, 'images/productos/1781750176_Bolas.PNG', '["inicio","productos"]', 'unisex', NULL, NULL, '2026-06-18 05:36:16', '2026-06-25 21:29:46', NULL),
 	(7, 'Paleta Adids X-Treme Lima 2021', 'Paleta del año 2021.', 270000.00, 2, 'images/productos/1781750219_Paleta Adids X-Treme Lima 2021.PNG', '["productos"]', NULL, NULL, NULL, '2026-06-18 05:36:59', '2026-06-25 21:19:03', NULL),
@@ -135,7 +135,7 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `url_
 	(12, 'Zapatillas Adidas Crazyquick Amarillo', 'Zapatillas de la marca Adidas edición Crazyquick Amarillo.', 180000.00, 3, 'images/productos/1782411534_zapatilla-adidas.PNG', '["productos"]', 'hombre', 'adidas', 'm', '2026-06-25 21:18:54', '2026-06-25 21:18:54', NULL),
 	(13, 'Short Babolat Aero', 'Short de la marca Babolat estilo Aero.', 40000.00, 9, 'images/productos/1782411652_short-babolat.PNG', '["productos"]', 'hombre', 'babolat', 'm', '2026-06-25 21:20:52', '2026-06-25 21:20:52', NULL),
 	(14, 'Media Bullpadel', 'Medias de la marca Bullpadel.', 8500.00, 3, 'images/productos/1782411751_media-bull.PNG', '["productos"]', 'mujer', 'bullpadel', 's', '2026-06-25 21:22:31', '2026-06-25 21:22:31', NULL),
-	(15, 'Grip Blanco', 'Grip de tonalidad blanca.', 4500.00, 12, 'images/productos/1782412249_grip-blanco.PNG', '["productos","ofertas"]', 'unisex', NULL, NULL, '2026-06-25 21:30:49', '2026-06-25 21:31:40', NULL),
+	(15, 'Grip Blanco', 'Grip de tonalidad blanca.', 4500.00, 0, 'images/productos/1782412249_grip-blanco.PNG', '["productos","ofertas"]', 'unisex', NULL, NULL, '2026-06-25 21:30:49', '2026-06-25 22:05:22', NULL),
 	(16, 'Grip Negro', 'Grip de tonalidad negra.', 5000.00, 5, 'images/productos/1782412286_grip-negro.PNG', '["productos","ofertas"]', 'unisex', NULL, NULL, '2026-06-25 21:31:26', '2026-06-25 21:31:26', NULL),
 	(17, 'Grip Winar', 'Grip de la marca Winar.', 5500.00, 9, 'images/productos/1782412334_grip-winar.PNG', '["productos","ofertas"]', 'unisex', NULL, NULL, '2026-06-25 21:32:14', '2026-06-25 21:32:14', NULL),
 	(18, 'Grip Relieve', 'Grip de la marca Relieve.', 4000.00, 6, 'images/productos/1782412358_grip-relieve.PNG', '["productos"]', 'unisex', NULL, NULL, '2026-06-25 21:32:38', '2026-06-25 21:32:38', NULL),
@@ -170,7 +170,8 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-	('WNdmH5SN88tDsT3MnmFxMp0sGHGd9garEDbDfHUK', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJXQ3U1M1lyb000YUNJdmxxUFhhUkoxeTNpWEk0dXZ0YWRPQmNHeXdzIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC9hZG1pblwvdmVudGFzIiwicm91dGUiOiJhZG1pbi52aXNWZW50YXMuaW5kZXgifSwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI6M30=', 1782412527);
+	('j2nZSvc1FFKpid1DARiO9hpg9wBRE3PvxcbAttSo', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.28.0 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36', 'eyJfdG9rZW4iOiJmbFZxMWcwRkkxSkVPMmEyaXkyTUhtTkYzOFBmY0hQOGxuZUlKaVZ0IiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC8/aGVyZD1wcmV2aWV3Iiwicm91dGUiOm51bGx9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX19', 1782690206),
+	('TGbSbtlFzKmk9JkjYWfMLfBTuBwiHbKeLFqpDFpK', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJ1dE9jdGlRN0xtaVMwdUdUNHpQU0tRWEthcUF6QnBqb1oybDFvWjVJIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC9jdWVudGFcL2NvbXByYXMiLCJyb3V0ZSI6ImN1ZW50YS5jb21wcmFzIn0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjV9', 1782695107);
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -204,10 +205,13 @@ CREATE TABLE IF NOT EXISTS `ventas_cabecera` (
   PRIMARY KEY (`id`),
   KEY `ventas_cabecera_user_id_foreign` (`user_id`),
   CONSTRAINT `ventas_cabecera_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `ventas_cabecera` (`id`, `fecha_venta`, `user_id`, `estado`, `total`, `created_at`, `updated_at`) VALUES
-	(1, '2026-06-18 05:22:10', 5, 'confirmado', 3000.00, '2026-06-18 05:21:53', '2026-06-18 05:22:10');
+	(1, '2026-06-18 05:22:10', 5, 'confirmado', 3000.00, '2026-06-18 05:21:53', '2026-06-18 05:22:10'),
+	(2, '2026-06-25 22:05:10', 5, 'confirmado', 39000.00, '2026-06-25 21:55:14', '2026-06-25 22:05:10'),
+	(3, '2026-06-25 22:05:22', 5, 'confirmado', 54000.00, '2026-06-25 22:05:21', '2026-06-25 22:05:22'),
+	(4, '2026-06-29 03:38:41', 5, 'confirmado', 250000.00, '2026-06-29 03:38:36', '2026-06-29 03:38:41');
 
 CREATE TABLE IF NOT EXISTS `ventas_detalle` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -223,11 +227,14 @@ CREATE TABLE IF NOT EXISTS `ventas_detalle` (
   KEY `ventas_detalle_producto_id_foreign` (`producto_id`),
   CONSTRAINT `ventas_detalle_producto_id_foreign` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`),
   CONSTRAINT `ventas_detalle_venta_id_foreign` FOREIGN KEY (`venta_id`) REFERENCES `ventas_cabecera` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `ventas_detalle` (`id`, `venta_id`, `producto_id`, `cantidad`, `precio_unitario`, `subtotal`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 2, 1000.00, 2000.00, '2026-06-18 05:21:53', '2026-06-18 05:21:53'),
-	(2, 1, 2, 1, 1000.00, 1000.00, '2026-06-18 05:22:04', '2026-06-18 05:22:04');
+	(2, 1, 2, 1, 1000.00, 1000.00, '2026-06-18 05:22:04', '2026-06-18 05:22:04'),
+	(3, 2, 4, 3, 13000.00, 39000.00, '2026-06-25 22:05:08', '2026-06-25 22:05:08'),
+	(4, 3, 15, 12, 4500.00, 54000.00, '2026-06-25 22:05:21', '2026-06-25 22:05:21'),
+	(5, 4, 1, 1, 250000.00, 250000.00, '2026-06-29 03:38:36', '2026-06-29 03:38:36');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

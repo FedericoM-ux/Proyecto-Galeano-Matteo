@@ -7,21 +7,11 @@
 @endphp
 
 <div class="container my-5">
-
-    @if(!$isAdmin)
-    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-        <i class="bi bi-check-circle-fill me-2"></i> 
-        <strong>¡Éxito!</strong> El comprobante ha sido enviado a su correo.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
-
     <div class="card shadow p-4">
 
         <h3 class="text-center mb-4">Comprobante de Compra</h3>
 
-        <p><strong>Venta N°:</strong> {{ $venta->id }}</p>
-        <p><strong>Fecha:</strong> {{ $venta->fecha_venta }}</p>
+        <p><strong>Fecha:</strong> {{ \Carbon\Carbon::parse($venta->fecha_venta)->translatedFormat('d \d\e F \d\e Y \a \l\a\s H:i \h\s') }}</p>
 
         <hr>
 
@@ -58,9 +48,8 @@
             Volver a Ventas
         </a>
     @else
-        <a href="/main" class="btn btn-primary">
-            Seguir Comprando
-        </a>
+        <a href="/main" class="btn btn-primary">Seguir Comprando</a>
+        <a href="{{ route('ventas.pdf', $venta->id) }}" class="btn btn-danger" target="_blank">Ver PDF</a>
     @endif
     </div>
     </div>

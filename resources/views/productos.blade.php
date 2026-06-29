@@ -1,5 +1,12 @@
 @extends('plantilla')
 @section('contenido')
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
 <div class="container-fluid my-5">
     <div class="row px-3">
         

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\VentaCabecera;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CarritoController extends Controller
 {
@@ -37,11 +38,12 @@ class CarritoController extends Controller
     public function agregar(Request $request)
 {
     if (auth()->check() && auth()->user()->esAdmin()) {
-    return back()->with(
-        'error',
-        'Los administradores no pueden realizar compras.'
-    );
-}
+        return back()->with(
+            'error',
+            'Los administradores no pueden realizar compras.'
+        );
+    }
+
     $request->validate([
         'producto_id' => 'required|exists:productos,id',
         'cantidad' => 'required|integer|min:1'
@@ -49,19 +51,26 @@ class CarritoController extends Controller
 
     $producto = Producto::findOrFail($request->producto_id);
 
-    if ($producto->stock < $request->cantidad) {
-        return back()->with('error', 'No hay suficiente stock disponible');
-    }
-
     $carrito = $this->obtenerCarrito();
 
     $item = $carrito->detalles()
         ->where('producto_id', $producto->id)
         ->first();
 
+    $cantidadActual = $item ? $item->cantidad : 0;
+
+    $cantidadTotal = $cantidadActual + $request->cantidad;
+
+    if ($producto->stock < $cantidadTotal) {
+        return back()->with(
+            'error',
+            'No hay suficiente stock disponible'
+        );
+    }
+
     if ($item) {
 
-        $item->cantidad += $request->cantidad;
+        $item->cantidad = $cantidadTotal;
         $item->subtotal = $item->cantidad * $item->precio_unitario;
         $item->save();
 
@@ -77,9 +86,10 @@ class CarritoController extends Controller
 
     $this->recalcularTotal($carrito);
 
-    return redirect()
-        ->route('cliente.carrito')
-        ->with('success', 'Producto agregado al carrito');
+    return redirect()->back()->with(
+        'success',
+        'Se agregó (' . $request->cantidad . ') ' . $producto->nombre . ' al carrito. El stock de la tienda se descontara al finalizar la compra.'
+    );
 }
 
     public function eliminar($id)
@@ -138,5 +148,14 @@ class CarritoController extends Controller
     $venta = VentaCabecera::with('detalles.producto')->findOrFail($id);
 
     return view('backend.usuarios.comprobante', compact('venta'));
+}
+
+public function generarPdf($id)
+{
+    $venta = VentaCabecera::with('detalles.producto')->findOrFail($id);
+
+    $pdf = Pdf::loadView('backend.usuarios.comprobante-pdf', compact('venta'));
+
+    return $pdf->stream('Comprobante_'.$venta->id.'.pdf');
 }
 }

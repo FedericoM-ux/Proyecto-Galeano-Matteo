@@ -43,6 +43,7 @@
                                     <th>ID</th>
                                     <th>Fecha</th>
                                     <th>Total</th>
+                                    <th>Acciones</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -60,7 +61,13 @@
                                     <td class="fw-bold text-success">
                                         ${{ number_format($compra->total, 2) }}
                                     </td>
-
+                                    
+                                    <td>
+                                        <a href="{{ route('comprobante', $compra->id) }}" 
+                                           class="btn btn-sm btn-primary">
+                                            Ver comprobante
+                                        </a>
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr>

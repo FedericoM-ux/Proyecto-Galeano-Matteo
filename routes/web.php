@@ -76,3 +76,5 @@ Route::get('/admin/consultas', [AdminController::class, 'consultas'])->name('adm
 Route::get('/cuenta', [UsuarioController::class, 'editCuenta'])->name('cuenta.edit');
 Route::put('/cuenta', [UsuarioController::class, 'updateCuenta'])->name('cuenta.update');
 Route::get('/cuenta/compras', [UsuarioController::class, 'compras'])->name('cuenta.compras');
+
+Route::get('/ventas/{id}/pdf', [CarritoController::class, 'generarPdf'])->name('ventas.pdf');

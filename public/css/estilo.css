@@ -207,3 +207,64 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+body {
+    font-family: DejaVu Sans, Arial, Helvetica, sans-serif;
+}
+
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    border:1px solid #000;
+    padding:8px;
+}
+
+th{
+    background:#eee;
+}
+
+h2{
+    text-align:center;
+}
+
+.total {
+    text-align: right;
+}
+
+.logo {
+    display: table;
+}
+
+.logo img {
+    display: table-cell;
+    vertical-align: middle;
+    width: 80px;
+}
+
+.logo-text {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 12px;
+    border-left: 2px solid #006636;
+}
+
+.logo-text .main {
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #006636;
+}
+
+.logo-text .sub {
+    font-family: Montserrat, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #006636;
+}
