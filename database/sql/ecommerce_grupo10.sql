@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-CREATE DATABASE IF NOT EXISTS `ecommerce_grupo10` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+CREATE DATABASE IF NOT EXISTS `ecommerce_grupo10` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci */;
 USE `ecommerce_grupo10`;
 
 CREATE TABLE IF NOT EXISTS `cache` (
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `url_imagen`, `secciones`, `genero`, `marca`, `talle`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'Caja de Pelotas Bullpadel', 'Conjunto de Pelotas de la marca Bullpadel.', 250000.00, 2, 'images/productos/1781748783_Bolso-bull.PNG', '["productos","mayorista"]', 'unisex', 'bullpadel', NULL, '2026-06-18 05:13:03', '2026-06-29 03:38:41', NULL),
+	(1, 'Caja de Pelotas Bullpadel', 'Conjunto de Pelotas de la marca Bullpadel.', 250000.00, 2, 'images/productos/1782852132_cajabull.PNG', '["productos","mayorista"]', 'unisex', 'bullpadel', NULL, '2026-06-18 05:13:03', '2026-06-30 20:42:12', NULL),
 	(2, 'Caja de Pelotas Penn', 'Conjunto de pelotas de la marca Penn.', 150000.00, 3, 'images/productos/1781748826_caja-penn.PNG', '["productos","mayorista"]', 'unisex', NULL, NULL, '2026-06-18 05:13:46', '2026-06-25 21:35:00', NULL),
 	(3, 'Remera Bullpadel', 'Prenda de vestir para hombres.', 45000.00, 7, 'images/productos/1781749411_remera-bull.PNG', '["inicio","productos"]', 'hombre', 'bullpadel', 'm', '2026-06-18 05:23:31', '2026-06-25 21:21:36', NULL),
 	(4, 'Remera', 'Prenda de vestir para hombres.', 13000.00, 0, 'images/productos/1781749457_remera-head.PNG', '["inicio","productos","ofertas"]', 'hombre', NULL, 'm', '2026-06-18 05:24:17', '2026-06-25 22:05:10', NULL),
@@ -170,7 +170,9 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+	('bDycPARR8zPaP8y1wlcU4HTR52A1DJB7IQzHdENz', 3, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJXaFBndkhRSnV6eXd4ejJJSGg3d1dTRXIwcXNXcG00dXZ0dDFMNEdNIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC9wcm9kdWN0b3MiLCJyb3V0ZSI6InByb2R1Y3Rvcy5pbmRleCJ9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX0sImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjozfQ==', 1782852138),
 	('j2nZSvc1FFKpid1DARiO9hpg9wBRE3PvxcbAttSo', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.28.0 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36', 'eyJfdG9rZW4iOiJmbFZxMWcwRkkxSkVPMmEyaXkyTUhtTkYzOFBmY0hQOGxuZUlKaVZ0IiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC8/aGVyZD1wcmV2aWV3Iiwicm91dGUiOm51bGx9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX19', 1782690206),
+	('qkGkvdpDBkMO1DrRzhmmaAR62C0vZhVieOSM4xLG', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Herd/1.28.0 Chrome/120.0.6099.291 Electron/28.2.5 Safari/537.36', 'eyJfdG9rZW4iOiJuRVFKOFhBVTRDeEZVQzlOQ0hIRll1RHl5RE1iSElvdTU5Rzg5SlczIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC8/aGVyZD1wcmV2aWV3Iiwicm91dGUiOm51bGx9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX19', 1782852014),
 	('TGbSbtlFzKmk9JkjYWfMLfBTuBwiHbKeLFqpDFpK', 5, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJ1dE9jdGlRN0xtaVMwdUdUNHpQU0tRWEthcUF6QnBqb1oybDFvWjVJIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cL2dhbGVhbm8tbWF0dGVvLWdpdC50ZXN0XC9jdWVudGFcL2NvbXByYXMiLCJyb3V0ZSI6ImN1ZW50YS5jb21wcmFzIn0sIl9mbGFzaCI6eyJvbGQiOltdLCJuZXciOltdfSwibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiOjV9', 1782695107);
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
