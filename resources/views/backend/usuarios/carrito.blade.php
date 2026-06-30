@@ -1,6 +1,6 @@
 @extends('plantilla')
-
 @section('contenido')
+
 <div class="container my-5">
 
     <h3 class="fw-bold mb-4">

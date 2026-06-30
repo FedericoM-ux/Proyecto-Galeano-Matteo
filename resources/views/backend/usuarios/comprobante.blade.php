@@ -43,14 +43,8 @@
 
         <div class="text-center mt-3">
 
-    @if($isAdmin)
-        <a href="{{ route('admin.visVentas.index') }}" class="btn btn-primary">
-            Volver a Ventas
-        </a>
-    @else
-        <a href="/main" class="btn btn-primary">Volver a la página principal</a>
+        <a href="{{ url()->previous(url('/main')) }}" class="btn btn-primary">Volver atrás</a>
         <a href="{{ route('ventas.pdf', $venta->id) }}" class="btn btn-danger" target="_blank">Ver PDF</a>
-    @endif
     </div>
     </div>
 

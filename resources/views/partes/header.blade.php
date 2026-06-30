@@ -86,15 +86,24 @@
     </li>
 @endauth
 
-                    </ul>
-                </div>
+    </ul>
+</div>  
+            @if(auth()->check() && auth()->user()->rol->nombre != 'admin')
+                <a href="/carrito" class="position-relative">
+                    <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ $cartCount }}
+                    </span>
+                </a>
 
-                    @if(!auth()->check() || auth()->user()->rol->nombre != 'admin')
-                        <a href="/carrito" class="position-relative">
-                        <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ $cartCount }}</span>
-                        </a>
-                    @endif
+            @elseif(!auth()->check())
+                <a href="{{ route('login') }}?mensaje=carrito" class="position-relative">
+                    <img src="{{ asset('images/shopping-cart.svg') }}" height="28">
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ $cartCount }}
+                    </span>
+                </a>
+            @endif
             </div>
 
         </div>

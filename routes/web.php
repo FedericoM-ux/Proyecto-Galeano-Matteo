@@ -55,6 +55,7 @@ Route::get('/sobre-nosotros', function () {
 });
 
 Route::get('/admin-test', [AdminController::class, 'dashboard']);
+
 Route::get('/cliente', function () {
     return view('backend.usuarios.cliente');
 });

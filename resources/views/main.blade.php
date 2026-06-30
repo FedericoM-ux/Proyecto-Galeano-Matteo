@@ -64,8 +64,14 @@
                     <form action="{{ route('carrito.agregar') }}" method="POST" class="w-100 mt-auto">
                         @csrf
                         <input type="hidden" name="producto_id" value="{{ $producto->id }}">
-                        
-                        @if(!auth()->check() || !auth()->user()->esAdmin())
+                        @if(auth()->guest())
+
+    <a href="{{ route('login') }}?mensaje=compra"
+       class="btn btn-dark w-100 fw-bold py-2">
+        COMPRAR <i class="bi bi-cart"></i>
+    </a>
+
+@elseif(!auth()->user()->esAdmin())
 
     @if($producto->stock > 0)
         <button type="button"
@@ -98,10 +104,6 @@
         </div>
 
         <div class="modal-body">
-
-          <span class="badge bg-info text-dark mb-2">
-              Stock: {{ $producto->stock }}
-          </span>
 
           <label class="form-label">Cantidad</label>
 

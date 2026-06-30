@@ -2,6 +2,13 @@
 @section('contenido')
 <div class="separador"></div>
 
+@if(in_array(request('mensaje'), ['compra', 'carrito']))
+    <div class="alert alert-success alert-dismissible fade show mb-4" role="alert">
+                    Debés iniciar sesión para utilizar esta función.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+@endif
+
 @if($errors->any())
     <div class="container mt-3">
         <div class="alert alert-danger">

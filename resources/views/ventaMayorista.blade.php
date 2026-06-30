@@ -37,7 +37,14 @@
                         <input type="hidden" name="producto_id" value="{{ $producto->id }}">
                       
 
-    @if(!auth()->check() || !auth()->user()->esAdmin())
+@if(auth()->guest())
+
+    <a href="{{ route('login') }}?mensaje=compra"
+       class="btn btn-dark w-100 fw-bold py-2">
+        COMPRAR <i class="bi bi-cart"></i>
+    </a>
+
+@elseif(!auth()->user()->esAdmin())
 
     @if($producto->stock > 0)
         <button type="button"
@@ -69,12 +76,6 @@
         </div>
 
         <div class="modal-body">
-
-          <div class="mb-3">
-              <span class="badge bg-info text-dark">
-                  Stock disponible: {{ $producto->stock }}
-              </span>
-          </div>
 
           <label class="form-label">Cantidad</label>
 

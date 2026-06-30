@@ -112,19 +112,25 @@
                                                     </span>
                                                 @endif
                                             </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-warning me-1" data-bs-toggle="modal" data-bs-target="#modalEditar{{ $prod->id }}">
-                                                    <i class="bi bi-pencil"></i>
-                                                </button>
+                                            <td class="text-nowrap">
+                                            <button class="btn btn-warning btn-sm me-2"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#modalEditar{{ $prod->id }}">
+                                                <i class="bi bi-pencil-square"></i> Editar
+                                            </button>
 
-                                                <form action="{{ route('productos.destroy', $prod->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Seguro que deseas eliminar este producto?')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
+                                            <form action="{{ route('productos.destroy', $prod->id) }}"
+                                                  method="POST"
+                                                  class="d-inline"
+                                                  onsubmit="return confirm('¿Seguro que deseas eliminar este producto?')">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="bi bi-trash-fill"></i> Eliminar
+                                                </button>
+                                            </form>
+                                        </td>
                                         </tr>
 
                                         <div class="modal fade" id="modalEditar{{ $prod->id }}" tabindex="-1" aria-hidden="true">

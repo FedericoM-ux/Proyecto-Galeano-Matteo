@@ -116,20 +116,25 @@
                                                     <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill">Cliente</span>
                                                 @endif
                                             </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-outline-warning me-1" data-bs-toggle="modal" data-bs-target="#modalEditar{{ $user->id }}">
-                                                    <i class="bi bi-pencil"></i>
+                                            <td class="text-nowrap">
+                                            <button class="btn btn-warning btn-sm me-2"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#modalEditar{{ $user->id }}">
+                                                <i class="bi bi-pencil-square"></i> Editar
+                                            </button>
+
+                                            <form action="{{ route('usuarios.destroy', $user->id) }}"
+                                                  method="POST"
+                                                  class="d-inline"
+                                                  onsubmit="return confirm('¿Seguro que deseas eliminar este usuario?')">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="bi bi-trash-fill"></i> Eliminar
                                                 </button>
-                                                
-                                                <form action="{{ route('usuarios.destroy', $user->id) }}" method="POST" class="d-inline" onsubmit="return confirm('¿Seguro que deseas eliminar este usuario?')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-outline-danger">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
+                                            </form>
+                                        </td>
 
                                         <div class="modal fade" id="modalEditar{{ $user->id }}" tabindex="-1" aria-hidden="true">
                                             <div class="modal-dialog">
